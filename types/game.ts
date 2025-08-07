@@ -30,7 +30,7 @@ export interface GameState {
   roundHistory: RoundResult[];
   favorites: Color[];
   finalTop3: Color[];
-  gamePhase: "selection" | "favorites" | "finale" | "complete";
+  gamePhase: "selection" | "finale" | "complete";
   startTime: Date;
 }
 

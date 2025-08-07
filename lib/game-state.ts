@@ -94,21 +94,18 @@ export function useGameState() {
         setCurrentColors(generateColorSet(prev.colorsPerRound));
         return newState;
       } else {
-        // Move to favorites phase
+        // Move directly to finale phase with top 5 selected colors
+        const topColors = prev.selectedColors
+          .sort((a, b) => b.selectionCount - a.selectionCount)
+          .slice(0, 5);
+
         return {
           ...prev,
-          gamePhase: "favorites" as const,
+          favorites: topColors,
+          gamePhase: "finale" as const,
         };
       }
     });
-  }, []);
-
-  const selectFavorites = useCallback((favorites: Color[]) => {
-    setGameState((prev) => ({
-      ...prev,
-      favorites,
-      gamePhase: "finale",
-    }));
   }, []);
 
   const setFinalRanking = useCallback((finalTop3: Color[]) => {
@@ -143,7 +140,6 @@ export function useGameState() {
     currentColors,
     selectColor,
     nextRound,
-    selectFavorites,
     setFinalRanking,
     resetGame,
     getMostSelectedColors,

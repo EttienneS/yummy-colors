@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 interface GameProgressProps {
   currentRound: number;
   totalRounds: number;
-  gamePhase: "selection" | "favorites" | "finale" | "complete";
+  gamePhase: "selection" | "finale" | "complete";
 }
 
 export function GameProgress({
@@ -17,8 +17,6 @@ export function GameProgress({
     switch (gamePhase) {
       case "selection":
         return `Round ${currentRound} of ${totalRounds}`;
-      case "favorites":
-        return "Choose your favorites";
       case "finale":
         return "Final ranking";
       case "complete":
@@ -30,10 +28,7 @@ export function GameProgress({
 
   const getProgress = () => {
     if (gamePhase === "selection") {
-      return (currentRound / totalRounds) * 60; // 60% for selection rounds
-    }
-    if (gamePhase === "favorites") {
-      return 80;
+      return (currentRound / totalRounds) * 70; // 70% for selection rounds
     }
     if (gamePhase === "finale") {
       return 95;
@@ -56,11 +51,6 @@ export function GameProgress({
           {gamePhase === "selection" && (
             <p className="text-sm text-muted-foreground">
               Pick the most appetizing color from each set
-            </p>
-          )}
-          {gamePhase === "favorites" && (
-            <p className="text-sm text-muted-foreground">
-              Select your favorite colors from your previous choices
             </p>
           )}
           {gamePhase === "finale" && (

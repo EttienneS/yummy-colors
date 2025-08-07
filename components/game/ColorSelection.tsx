@@ -67,7 +67,7 @@ export function ColorSelection({
         {selectedColor && onNextRound && (
           <div className="text-center">
             <Button onClick={handleNextRound} size="lg" className="px-8">
-              {isLastRound ? "Continue to Favorites" : "Next Round"}
+              {isLastRound ? "Continue to Final Ranking" : "Next Round"}
             </Button>
           </div>
         )}

@@ -5,7 +5,6 @@ import { Color } from "@/types/game";
 import { useGameState } from "@/lib/game-state";
 import { GameProgress } from "@/components/game/GameProgress";
 import { ColorSelection } from "@/components/game/ColorSelection";
-import { FavoritesRound } from "@/components/game/FavoritesRound";
 import { FinaleRound } from "@/components/game/FinaleRound";
 import { ResultsDisplay } from "@/components/game/ResultsDisplay";
 
@@ -15,10 +14,8 @@ export default function ColorGamePage() {
     currentColors,
     selectColor,
     nextRound,
-    selectFavorites,
     setFinalRanking,
     resetGame,
-    getMostSelectedColors,
   } = useGameState();
 
   const handleColorSelect = (color: Color) => {
@@ -35,16 +32,6 @@ export default function ColorGamePage() {
             round={gameState.currentRound}
             onNextRound={nextRound}
             isLastRound={gameState.currentRound === gameState.totalRounds}
-          />
-        );
-
-      case "favorites":
-        const mostSelected = getMostSelectedColors(12);
-        return (
-          <FavoritesRound
-            colors={mostSelected}
-            onFavoritesSelect={selectFavorites}
-            maxSelections={8}
           />
         );
 
