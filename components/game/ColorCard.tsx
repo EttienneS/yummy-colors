@@ -1,4 +1,3 @@
-import React from "react";
 import { Color, getContrastColor } from "@/lib/colors";
 import { cn } from "@/lib/utils";
 

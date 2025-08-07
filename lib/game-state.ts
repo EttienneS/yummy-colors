@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { GameState, Color, RoundResult } from "@/types/game";
+import { GameState, Color } from "@/types/game";
 import { generateAllGameRounds } from "@/lib/colors";
 import {
   saveGameState,
@@ -77,7 +77,7 @@ export function useGameState() {
   const selectColor = useCallback(
     (selectedColor: Color, timeSpent: number = 0) => {
       setGameState((prev) => {
-        const roundResult: RoundResult = {
+        const roundResult = {
           round: prev.currentRound,
           colorsShown: currentColors,
           selectedColor,

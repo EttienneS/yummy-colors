@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { Color } from "@/types/game";
 import { useGameState } from "@/lib/game-state";
 import { GameProgress } from "@/components/game/GameProgress";

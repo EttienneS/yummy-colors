@@ -1,4 +1,3 @@
-import React from "react";
 import { Color } from "@/types/game";
 import { ColorCard } from "./ColorCard";
 import { Button } from "@/components/ui/button";
