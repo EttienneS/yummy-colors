@@ -257,9 +257,9 @@ export const CURATED_COLORS: Array<{
   },
   {
     name: "Cinnamon",
-    hex: "#D2691E",
-    hsl: { h: 25, s: 75, l: 47 },
-    rgb: { r: 210, g: 105, b: 30 },
+    hex: "#CD853F",
+    hsl: { h: 30, s: 59, l: 52 },
+    rgb: { r: 205, g: 133, b: 63 },
     category: "earth",
   },
   {
@@ -287,9 +287,9 @@ export const CURATED_COLORS: Array<{
   },
   {
     name: "Berry",
-    hex: "#DC143C",
-    hsl: { h: 348, s: 83, l: 47 },
-    rgb: { r: 220, g: 20, b: 60 },
+    hex: "#8B0000",
+    hsl: { h: 0, s: 100, l: 27 },
+    rgb: { r: 139, g: 0, b: 0 },
     category: "warm",
   },
   {
@@ -317,9 +317,9 @@ export const CURATED_COLORS: Array<{
   },
   {
     name: "Beige",
-    hex: "#F5F5DC",
-    hsl: { h: 60, s: 56, l: 91 },
-    rgb: { r: 245, g: 245, b: 220 },
+    hex: "#F5DEB3",
+    hsl: { h: 33, s: 78, l: 84 },
+    rgb: { r: 245, g: 222, b: 179 },
     category: "neutral",
   },
   {

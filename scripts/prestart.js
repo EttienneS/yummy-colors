@@ -13,8 +13,14 @@ const { Pool } = require("pg");
 const fs = require("fs");
 const path = require("path");
 
-// Load environment variables
-require("dotenv").config({ path: ".env.local" });
+// Load environment variables conditionally (only if .env.local exists)
+const envPath = path.join(__dirname, "..", ".env.local");
+if (fs.existsSync(envPath)) {
+  require("dotenv").config({ path: envPath });
+  console.log("📝 Loaded environment variables from .env.local");
+} else {
+  console.log("📝 Using system environment variables (no .env.local found)");
+}
 
 async function initializeDatabase() {
   try {
