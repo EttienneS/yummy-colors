@@ -4,8 +4,10 @@ import { Pool } from "pg";
 const dbConfig = {
   connectionString: process.env.DATABASE_URL,
   ssl:
-    process.env.NODE_ENV === "production"
+    process.env.DATABASE_SSL === "true"
       ? { rejectUnauthorized: false }
+      : process.env.DATABASE_SSL === "require"
+      ? { rejectUnauthorized: true }
       : false,
   // Alternative individual config options if not using connection string:
   // host: process.env.DB_HOST,
