@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save to database
-    const result = saveGameSession(gameSession);
+    const result = await saveGameSession(gameSession);
 
     return NextResponse.json({
       success: true,
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     const includeAnalytics = url.searchParams.get("analytics") === "true";
 
     // Get recent game results
-    const recentResults = getGameResults(limit);
+    const recentResults = await getGameResults(limit);
 
     const response: {
       results: typeof recentResults;
