@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Color } from '@/types/game';
-import { ColorCard } from './ColorCard';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useState } from "react";
+import { Color } from "@/types/game";
+import { ColorCard } from "./ColorCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ColorSelectionProps {
   colors: Color[];
@@ -12,12 +12,12 @@ interface ColorSelectionProps {
   isLastRound?: boolean;
 }
 
-export function ColorSelection({ 
-  colors, 
-  onColorSelect, 
-  round, 
+export function ColorSelection({
+  colors,
+  onColorSelect,
+  round,
   onNextRound,
-  isLastRound = false
+  isLastRound = false,
 }: ColorSelectionProps) {
   const [selectedColor, setSelectedColor] = useState<Color | null>(null);
   const [roundStartTime] = useState(Date.now());
@@ -26,15 +26,15 @@ export function ColorSelection({
     if (selectedColor?.id === color.id) {
       return; // Already selected
     }
-    
+
     setSelectedColor(color);
     const timeSpent = Date.now() - roundStartTime;
-    
+
     // Add a small delay for visual feedback before calling onColorSelect
     setTimeout(() => {
       onColorSelect({
         ...color,
-        selectionCount: color.selectionCount + 1
+        selectionCount: color.selectionCount + 1,
       });
     }, 300);
   };
@@ -64,15 +64,11 @@ export function ColorSelection({
             />
           ))}
         </div>
-        
+
         {selectedColor && onNextRound && (
           <div className="text-center">
-            <Button 
-              onClick={handleNextRound}
-              size="lg"
-              className="px-8"
-            >
-              {isLastRound ? 'Continue to Favorites' : 'Next Round'}
+            <Button onClick={handleNextRound} size="lg" className="px-8">
+              {isLastRound ? "Continue to Favorites" : "Next Round"}
             </Button>
           </div>
         )}

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useGameState } from '@/lib/game-state';
-import { GameProgress } from '@/components/game/GameProgress';
-import { ColorSelection } from '@/components/game/ColorSelection';
-import { FavoritesRound } from '@/components/game/FavoritesRound';
-import { FinaleRound } from '@/components/game/FinaleRound';
-import { ResultsDisplay } from '@/components/game/ResultsDisplay';
+import React from "react";
+import { useGameState } from "@/lib/game-state";
+import { GameProgress } from "@/components/game/GameProgress";
+import { ColorSelection } from "@/components/game/ColorSelection";
+import { FavoritesRound } from "@/components/game/FavoritesRound";
+import { FinaleRound } from "@/components/game/FinaleRound";
+import { ResultsDisplay } from "@/components/game/ResultsDisplay";
 
 export default function Home() {
   const {
@@ -26,7 +26,7 @@ export default function Home() {
 
   const renderCurrentPhase = () => {
     switch (gameState.gamePhase) {
-      case 'selection':
+      case "selection":
         return (
           <ColorSelection
             colors={currentColors}
@@ -36,8 +36,8 @@ export default function Home() {
             isLastRound={gameState.currentRound === gameState.totalRounds}
           />
         );
-      
-      case 'favorites':
+
+      case "favorites":
         const mostSelected = getMostSelectedColors(12);
         return (
           <FavoritesRound
@@ -46,16 +46,16 @@ export default function Home() {
             maxSelections={8}
           />
         );
-      
-      case 'finale':
+
+      case "finale":
         return (
           <FinaleRound
             colors={gameState.favorites}
             onFinalRanking={setFinalRanking}
           />
         );
-      
-      case 'complete':
+
+      case "complete":
         return (
           <ResultsDisplay
             top3Colors={gameState.finalTop3}
@@ -63,7 +63,7 @@ export default function Home() {
             totalRounds={gameState.totalRounds}
           />
         );
-      
+
       default:
         return null;
     }
@@ -79,7 +79,7 @@ export default function Home() {
           </p>
         </div>
 
-        {gameState.gamePhase !== 'complete' && (
+        {gameState.gamePhase !== "complete" && (
           <GameProgress
             currentRound={gameState.currentRound}
             totalRounds={gameState.totalRounds}

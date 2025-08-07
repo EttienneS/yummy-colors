@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Color } from '@/types/game';
-import { ColorCard } from './ColorCard';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import React, { useState } from "react";
+import { Color } from "@/types/game";
+import { ColorCard } from "./ColorCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 interface FinaleRoundProps {
   colors: Color[];
@@ -13,12 +13,15 @@ interface FinaleRoundProps {
 export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   const [rankedColors, setRankedColors] = useState<Color[]>([...colors]);
 
-  const moveColor = (fromIndex: number, direction: 'up' | 'down') => {
+  const moveColor = (fromIndex: number, direction: "up" | "down") => {
     const newRanked = [...rankedColors];
-    const toIndex = direction === 'up' ? fromIndex - 1 : fromIndex + 1;
-    
+    const toIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
+
     if (toIndex >= 0 && toIndex < newRanked.length) {
-      [newRanked[fromIndex], newRanked[toIndex]] = [newRanked[toIndex], newRanked[fromIndex]];
+      [newRanked[fromIndex], newRanked[toIndex]] = [
+        newRanked[toIndex],
+        newRanked[fromIndex],
+      ];
       setRankedColors(newRanked);
     }
   };
@@ -30,15 +33,11 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-center">
-          Final Ranking
-        </CardTitle>
+        <CardTitle className="text-center">Final Ranking</CardTitle>
         <p className="text-center text-muted-foreground">
           Arrange your colors in order of most to least appetizing
           <br />
-          <span className="text-sm">
-            The top 3 will be your final results
-          </span>
+          <span className="text-sm">The top 3 will be your final results</span>
         </p>
       </CardHeader>
       <CardContent>
@@ -52,7 +51,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => moveColor(index, 'up')}
+                  onClick={() => moveColor(index, "up")}
                   disabled={index === 0}
                   className="h-8 w-8"
                 >
@@ -61,14 +60,14 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() => moveColor(index, 'down')}
+                  onClick={() => moveColor(index, "down")}
                   disabled={index === rankedColors.length - 1}
                   className="h-8 w-8"
                 >
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </div>
-              
+
               <div className="flex items-center gap-4 flex-1">
                 <div className="text-2xl font-bold text-muted-foreground min-w-[2rem]">
                   #{index + 1}
@@ -88,13 +87,9 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center">
-          <Button 
-            onClick={handleFinalize}
-            size="lg"
-            className="px-8"
-          >
+          <Button onClick={handleFinalize} size="lg" className="px-8">
             Finalize Results
           </Button>
         </div>

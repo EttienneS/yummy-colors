@@ -15,9 +15,9 @@ const eslintConfig = [
     files: ["components/game/**/*.tsx"],
     rules: {
       "@next/next/no-css-tags": "off",
-      "react/no-inline-styles": "off"
-    }
-  }
+      "react/no-inline-styles": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

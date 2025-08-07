@@ -1,9 +1,9 @@
-import React from 'react';
-import { Color } from '@/types/game';
-import { ColorCard } from './ColorCard';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Trophy, Medal, Award } from 'lucide-react';
+import React from "react";
+import { Color } from "@/types/game";
+import { ColorCard } from "./ColorCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Trophy, Medal, Award } from "lucide-react";
 
 interface ResultsDisplayProps {
   top3Colors: Color[];
@@ -11,7 +11,11 @@ interface ResultsDisplayProps {
   totalRounds: number;
 }
 
-export function ResultsDisplay({ top3Colors, onPlayAgain, totalRounds }: ResultsDisplayProps) {
+export function ResultsDisplay({
+  top3Colors,
+  onPlayAgain,
+  totalRounds,
+}: ResultsDisplayProps) {
   const getTrophyIcon = (position: number) => {
     switch (position) {
       case 0:
@@ -59,13 +63,13 @@ export function ResultsDisplay({ top3Colors, onPlayAgain, totalRounds }: Results
                 {getTrophyIcon(index)}
                 <div className="text-lg font-bold">#{index + 1}</div>
               </div>
-              
+
               <ColorCard
                 color={color}
                 className="w-20 h-20 min-w-20 min-h-20"
                 showHex={true}
               />
-              
+
               <div className="flex-1">
                 <h3 className="text-xl font-semibold mb-1">
                   {getPositionText(index)}
@@ -74,8 +78,12 @@ export function ResultsDisplay({ top3Colors, onPlayAgain, totalRounds }: Results
                   {color.hex}
                 </div>
                 <div className="text-sm text-muted-foreground space-y-1">
-                  <div>HSL: {color.hsl.h}°, {color.hsl.s}%, {color.hsl.l}%</div>
-                  <div>RGB: {color.rgb.r}, {color.rgb.g}, {color.rgb.b}</div>
+                  <div>
+                    HSL: {color.hsl.h}°, {color.hsl.s}%, {color.hsl.l}%
+                  </div>
+                  <div>
+                    RGB: {color.rgb.r}, {color.rgb.g}, {color.rgb.b}
+                  </div>
                   {color.selectionCount > 0 && (
                     <div>Selected {color.selectionCount} times</div>
                   )}
@@ -101,12 +109,8 @@ export function ResultsDisplay({ top3Colors, onPlayAgain, totalRounds }: Results
               ))}
             </div>
           </div>
-          
-          <Button 
-            onClick={onPlayAgain}
-            size="lg"
-            className="px-8"
-          >
+
+          <Button onClick={onPlayAgain} size="lg" className="px-8">
             Play Again
           </Button>
         </div>
@@ -117,26 +121,29 @@ export function ResultsDisplay({ top3Colors, onPlayAgain, totalRounds }: Results
 
 function getColorInsights(colors: Color[]): string[] {
   const insights: string[] = [];
-  
+
   // Analyze hue preferences
-  const avgHue = colors.reduce((sum, color) => sum + color.hsl.h, 0) / colors.length;
+  const avgHue =
+    colors.reduce((sum, color) => sum + color.hsl.h, 0) / colors.length;
   if (avgHue < 60) insights.push("Warm tones");
   else if (avgHue < 180) insights.push("Cool greens");
   else if (avgHue < 240) insights.push("Cool blues");
   else if (avgHue < 300) insights.push("Purple tones");
   else insights.push("Warm reds");
-  
+
   // Analyze saturation
-  const avgSaturation = colors.reduce((sum, color) => sum + color.hsl.s, 0) / colors.length;
+  const avgSaturation =
+    colors.reduce((sum, color) => sum + color.hsl.s, 0) / colors.length;
   if (avgSaturation > 70) insights.push("Vibrant colors");
   else if (avgSaturation < 30) insights.push("Muted tones");
   else insights.push("Balanced saturation");
-  
+
   // Analyze lightness
-  const avgLightness = colors.reduce((sum, color) => sum + color.hsl.l, 0) / colors.length;
+  const avgLightness =
+    colors.reduce((sum, color) => sum + color.hsl.l, 0) / colors.length;
   if (avgLightness > 60) insights.push("Bright colors");
   else if (avgLightness < 40) insights.push("Dark colors");
   else insights.push("Medium tones");
-  
+
   return insights;
 }

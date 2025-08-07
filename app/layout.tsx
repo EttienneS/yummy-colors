@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Yummy Colors - Color Preference Game",
-  description: "Discover which colors make you feel most hungry through an interactive color selection game",
+  description:
+    "Discover which colors make you feel most hungry through an interactive color selection game",
 };
 
 export default function RootLayout({

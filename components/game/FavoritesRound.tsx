@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Color } from '@/types/game';
-import { ColorCard } from './ColorCard';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useState } from "react";
+import { Color } from "@/types/game";
+import { ColorCard } from "./ColorCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface FavoritesRoundProps {
   colors: Color[];
@@ -10,25 +10,25 @@ interface FavoritesRoundProps {
   maxSelections?: number;
 }
 
-export function FavoritesRound({ 
-  colors, 
-  onFavoritesSelect, 
-  maxSelections = 6 
+export function FavoritesRound({
+  colors,
+  onFavoritesSelect,
+  maxSelections = 6,
 }: FavoritesRoundProps) {
   const [selectedFavorites, setSelectedFavorites] = useState<Color[]>([]);
 
   const handleColorClick = (color: Color) => {
-    setSelectedFavorites(prev => {
-      const isAlreadySelected = prev.some(c => c.id === color.id);
-      
+    setSelectedFavorites((prev) => {
+      const isAlreadySelected = prev.some((c) => c.id === color.id);
+
       if (isAlreadySelected) {
         // Remove from favorites
-        return prev.filter(c => c.id !== color.id);
+        return prev.filter((c) => c.id !== color.id);
       } else if (prev.length < maxSelections) {
         // Add to favorites
         return [...prev, color];
       }
-      
+
       return prev; // Don't add if max reached
     });
   };
@@ -39,7 +39,9 @@ export function FavoritesRound({
     }
   };
 
-  const sortedColors = [...colors].sort((a, b) => b.selectionCount - a.selectionCount);
+  const sortedColors = [...colors].sort(
+    (a, b) => b.selectionCount - a.selectionCount
+  );
 
   return (
     <Card className="w-full">
@@ -61,20 +63,21 @@ export function FavoritesRound({
             <div key={color.id} className="relative">
               <ColorCard
                 color={color}
-                isSelected={selectedFavorites.some(c => c.id === color.id)}
+                isSelected={selectedFavorites.some((c) => c.id === color.id)}
                 onClick={() => handleColorClick(color)}
                 className="w-full"
                 showHex={true}
               />
               <div className="text-center mt-2 text-xs text-muted-foreground">
-                Selected {color.selectionCount} time{color.selectionCount !== 1 ? 's' : ''}
+                Selected {color.selectionCount} time
+                {color.selectionCount !== 1 ? "s" : ""}
               </div>
             </div>
           ))}
         </div>
-        
+
         <div className="text-center">
-          <Button 
+          <Button
             onClick={handleContinue}
             size="lg"
             className="px-8"
