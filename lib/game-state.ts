@@ -28,7 +28,7 @@ export function useGameState() {
   // Initialize game with pre-generated rounds
   const initializeGame = useCallback((state: GameState) => {
     // If allRounds is missing, not an array, or empty, re-generate
-    let allRounds: Color[][] =
+    const allRounds: Color[][] =
       Array.isArray(state.allRounds) && state.allRounds.length > 0
         ? state.allRounds
         : generateAllGameRounds(state.totalRounds, state.colorsPerRound);

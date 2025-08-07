@@ -1,5 +1,5 @@
 import { query, getClient } from "./db";
-import { GameSession, Color, RoundResult } from "@/types/game";
+import { GameSession, Color } from "@/types/game";
 import { CURATED_COLORS } from "./colors";
 import { ensureDbInitialized } from "./startup";
 
