@@ -451,6 +451,39 @@ export function generateBalancedColorSet(count: number): Color[] {
   return selectedColors.sort(() => Math.random() - 0.5).slice(0, count);
 }
 
+export function generateAllGameRounds(
+  totalRounds: number,
+  colorsPerRound: number
+): Color[][] {
+  // Calculate total colors needed
+  const totalColorsNeeded = totalRounds * colorsPerRound;
+
+  // Ensure we don't request more colors than available
+  if (totalColorsNeeded > CURATED_COLORS.length) {
+    throw new Error(
+      `Cannot generate ${totalColorsNeeded} unique colors. Only ${CURATED_COLORS.length} colors available.`
+    );
+  }
+
+  // Create a shuffled copy of all curated colors
+  const shuffledColors = [...CURATED_COLORS].sort(() => Math.random() - 0.5);
+
+  // Take the required number of colors and convert them
+  const selectedColors = shuffledColors
+    .slice(0, totalColorsNeeded)
+    .map(createColorFromCurated);
+
+  // Split into rounds
+  const rounds: Color[][] = [];
+  for (let round = 0; round < totalRounds; round++) {
+    const startIndex = round * colorsPerRound;
+    const endIndex = startIndex + colorsPerRound;
+    rounds.push(selectedColors.slice(startIndex, endIndex));
+  }
+
+  return rounds;
+}
+
 export function getColorByName(name: string): Color | null {
   const found = CURATED_COLORS.find(
     (c) => c.name.toLowerCase() === name.toLowerCase()

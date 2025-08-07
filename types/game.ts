@@ -27,6 +27,7 @@ export interface GameState {
   currentRound: number;
   totalRounds: number;
   colorsPerRound: number;
+  allRounds: Color[][]; // Pre-generated colors for all rounds
   selectedColors: Color[];
   roundHistory: RoundResult[];
   favorites: Color[];

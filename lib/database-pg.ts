@@ -51,6 +51,7 @@ export async function getColorByHex(hex: string): Promise<Color | null> {
     const row = result.rows[0];
     return {
       id: row.id,
+      name: row.name,
       hex: row.hex,
       hsl: { h: row.hue, s: row.saturation, l: row.lightness },
       rgb: { r: row.red, g: row.green, b: row.blue },

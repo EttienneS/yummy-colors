@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { GameState, Color, RoundResult } from "@/types/game";
-import { generateColorSet } from "@/lib/colors";
+import { generateAllGameRounds } from "@/lib/colors";
 import {
   saveGameState,
   loadGameState,
@@ -12,6 +12,7 @@ const INITIAL_GAME_STATE: GameState = {
   currentRound: 1,
   totalRounds: 5,
   colorsPerRound: 6,
+  allRounds: [], // Will be populated when game starts
   selectedColors: [],
   roundHistory: [],
   favorites: [],
@@ -24,19 +25,40 @@ export function useGameState() {
   const [gameState, setGameState] = useState<GameState>(INITIAL_GAME_STATE);
   const [currentColors, setCurrentColors] = useState<Color[]>([]);
 
+  // Initialize game with pre-generated rounds
+  const initializeGame = useCallback((state: GameState) => {
+    // If allRounds is missing, not an array, or empty, re-generate
+    let allRounds: Color[][] =
+      Array.isArray(state.allRounds) && state.allRounds.length > 0
+        ? state.allRounds
+        : generateAllGameRounds(state.totalRounds, state.colorsPerRound);
+    const newState = { ...state, allRounds };
+    setGameState(newState);
+    const roundIndex = newState.currentRound - 1;
+    setCurrentColors(allRounds[roundIndex] || []);
+    return newState;
+  }, []);
+
   // Load saved game state on mount
   useEffect(() => {
     const savedState = loadGameState();
     if (savedState && savedState.gamePhase !== "complete") {
-      setGameState(savedState);
-      if (savedState.gamePhase === "selection") {
-        setCurrentColors(generateColorSet(savedState.colorsPerRound));
-      }
+      initializeGame(savedState);
     } else {
       // Start new game
-      setCurrentColors(generateColorSet(INITIAL_GAME_STATE.colorsPerRound));
+      const allRounds = generateAllGameRounds(
+        INITIAL_GAME_STATE.totalRounds,
+        INITIAL_GAME_STATE.colorsPerRound
+      );
+      const newState = {
+        ...INITIAL_GAME_STATE,
+        allRounds,
+        startTime: new Date(),
+      };
+      setGameState(newState);
+      setCurrentColors(allRounds[0]);
     }
-  }, []);
+  }, [initializeGame]);
 
   // Save game state whenever it changes
   useEffect(() => {
@@ -91,7 +113,8 @@ export function useGameState() {
           ...prev,
           currentRound: prev.currentRound + 1,
         };
-        setCurrentColors(generateColorSet(prev.colorsPerRound));
+        const roundIndex = newState.currentRound - 1;
+        setCurrentColors(prev.allRounds[roundIndex] || []);
         return newState;
       } else {
         // Move directly to finale phase with top 5 selected colors
@@ -115,7 +138,8 @@ export function useGameState() {
           ...prev,
           currentRound: prev.currentRound - 1,
         };
-        setCurrentColors(generateColorSet(prev.colorsPerRound));
+        const roundIndex = newState.currentRound - 1;
+        setCurrentColors(prev.allRounds[roundIndex] || []);
         return newState;
       }
       return prev;
@@ -132,12 +156,17 @@ export function useGameState() {
 
   const resetGame = useCallback(() => {
     clearGameState();
+    const allRounds = generateAllGameRounds(
+      INITIAL_GAME_STATE.totalRounds,
+      INITIAL_GAME_STATE.colorsPerRound
+    );
     const newState = {
       ...INITIAL_GAME_STATE,
+      allRounds,
       startTime: new Date(),
     };
     setGameState(newState);
-    setCurrentColors(generateColorSet(newState.colorsPerRound));
+    setCurrentColors(allRounds[0]);
   }, []);
 
   const getMostSelectedColors = useCallback(
