@@ -28,7 +28,6 @@ export function ColorSelection({
     }
 
     setSelectedColor(color);
-    const timeSpent = Date.now() - roundStartTime;
 
     // Add a small delay for visual feedback before calling onColorSelect
     setTimeout(() => {

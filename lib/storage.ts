@@ -1,4 +1,4 @@
-import { GameState, GameSession } from "@/types/game";
+import { GameState, GameSession, RoundResult } from "@/types/game";
 
 const GAME_STATE_KEY = "yummy-colors-game-state";
 const GAME_SESSIONS_KEY = "yummy-colors-sessions";
@@ -17,10 +17,12 @@ export function loadGameState(): GameState | null {
         const gameState = JSON.parse(saved);
         // Convert date strings back to Date objects
         gameState.startTime = new Date(gameState.startTime);
-        gameState.roundHistory = gameState.roundHistory.map((round: any) => ({
-          ...round,
-          timestamp: new Date(round.timestamp),
-        }));
+        gameState.roundHistory = gameState.roundHistory.map(
+          (round: RoundResult) => ({
+            ...round,
+            timestamp: new Date(round.timestamp),
+          })
+        );
         return gameState;
       } catch (error) {
         console.error("Error loading game state:", error);

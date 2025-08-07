@@ -52,7 +52,11 @@ export async function GET(request: NextRequest) {
     // Get recent game results
     const recentResults = getGameResults(limit);
 
-    const response: any = {
+    const response: {
+      results: typeof recentResults;
+      total: number;
+      analytics?: ReturnType<typeof getColorAnalytics>;
+    } = {
       results: recentResults,
       total: recentResults.length,
     };

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Color } from "@/types/game";
 import { useGameState } from "@/lib/game-state";
 import { GameProgress } from "@/components/game/GameProgress";
 import { ColorSelection } from "@/components/game/ColorSelection";
@@ -8,7 +9,7 @@ import { FavoritesRound } from "@/components/game/FavoritesRound";
 import { FinaleRound } from "@/components/game/FinaleRound";
 import { ResultsDisplay } from "@/components/game/ResultsDisplay";
 
-export default function Home() {
+export default function ColorGamePage() {
   const {
     gameState,
     currentColors,
@@ -20,7 +21,7 @@ export default function Home() {
     getMostSelectedColors,
   } = useGameState();
 
-  const handleColorSelect = (color: any) => {
+  const handleColorSelect = (color: Color) => {
     selectColor(color);
   };
 

@@ -96,7 +96,7 @@ export function ResultsDisplay({
         <div className="text-center space-y-4">
           <div className="p-4 bg-muted rounded-lg">
             <p className="text-sm text-muted-foreground mb-2">
-              Interesting! Your color preferences show you're drawn to:
+              Interesting! Your color preferences show you&apos;re drawn to:
             </p>
             <div className="flex flex-wrap gap-2 justify-center">
               {getColorInsights(top3Colors).map((insight, index) => (
