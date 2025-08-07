@@ -5,16 +5,23 @@
   "scripts": {
     "dev": "next dev --turbopack --port 1508",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "npm run prestart && next start",
+    "prestart": "node scripts/prestart.js",
+    "lint": "next lint",
+    "db:init": "node scripts/init-db.js",
+    "db:schema": "psql $DATABASE_URL -f database/schema.sql",
+    "db:seed": "psql $DATABASE_URL -f database/seed-colors.sql"
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@types/pg": "^8.15.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.1",
     "lucide-react": "^0.537.0",
     "next": "15.4.6",
+    "pg": "^8.16.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "tailwind-merge": "^3.3.1"

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getColorAnalytics } from "@/lib/database";
+import { getColorAnalytics } from "@/lib/database-pg";
 
 export async function GET() {
   try {

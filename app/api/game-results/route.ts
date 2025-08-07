@@ -4,7 +4,7 @@ import {
   saveGameSession,
   getGameResults,
   getColorAnalytics,
-} from "@/lib/database";
+} from "@/lib/database-pg";
 
 export async function POST(request: NextRequest) {
   try {
