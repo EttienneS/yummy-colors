@@ -1,0 +1,2663 @@
+{
+  "sessions": [
+    {
+      "id": "7dbbe36e-79df-46e8-8c3f-5752f9a99c59",
+      "gameState": {
+        "currentRound": 5,
+        "totalRounds": 5,
+        "colorsPerRound": 6,
+        "selectedColors": [
+          {
+            "id": "1eb33396-ab33-4cdc-a117-f69ee3de94ee",
+            "hex": "#92b148",
+            "hsl": {
+              "h": 78,
+              "s": 42,
+              "l": 49
+            },
+            "rgb": {
+              "r": 146,
+              "g": 177,
+              "b": 72
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "16cc7685-631e-4b74-934a-ebd498b2a95a",
+            "hex": "#984b3a",
+            "hsl": {
+              "h": 11,
+              "s": 45,
+              "l": 41
+            },
+            "rgb": {
+              "r": 152,
+              "g": 75,
+              "b": 58
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "a19129c2-89b9-499b-af90-8b71e26f2a2f",
+            "hex": "#722ca0",
+            "hsl": {
+              "h": 276,
+              "s": 57,
+              "l": 40
+            },
+            "rgb": {
+              "r": 114,
+              "g": 44,
+              "b": 160
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "cb3d7407-ba44-428c-b464-7b5ce04c5747",
+            "hex": "#908731",
+            "hsl": {
+              "h": 54,
+              "s": 49,
+              "l": 38
+            },
+            "rgb": {
+              "r": 144,
+              "g": 135,
+              "b": 49
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "d34c6d08-cc9c-4bfb-aa6e-046c5d9b5bf2",
+            "hex": "#93593e",
+            "hsl": {
+              "h": 19,
+              "s": 41,
+              "l": 41
+            },
+            "rgb": {
+              "r": 147,
+              "g": 89,
+              "b": 62
+            },
+            "selectionCount": 1
+          }
+        ],
+        "roundHistory": [
+          {
+            "round": 1,
+            "colorsShown": [
+              {
+                "id": "245195f0-40e7-465f-abd9-d72b6c7555b1",
+                "hex": "#7da031",
+                "hsl": {
+                  "h": 79,
+                  "s": 53,
+                  "l": 41
+                },
+                "rgb": {
+                  "r": 125,
+                  "g": 160,
+                  "b": 49
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "1eb33396-ab33-4cdc-a117-f69ee3de94ee",
+                "hex": "#92b148",
+                "hsl": {
+                  "h": 78,
+                  "s": 42,
+                  "l": 49
+                },
+                "rgb": {
+                  "r": 146,
+                  "g": 177,
+                  "b": 72
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "c32b7d02-f0c7-4471-9c8c-80c341dae174",
+                "hex": "#50cfe2",
+                "hsl": {
+                  "h": 188,
+                  "s": 72,
+                  "l": 60
+                },
+                "rgb": {
+                  "r": 80,
+                  "g": 207,
+                  "b": 226
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "5c74c541-c27a-4a6b-9b03-b5b47af188ac",
+                "hex": "#9e45b0",
+                "hsl": {
+                  "h": 290,
+                  "s": 44,
+                  "l": 48
+                },
+                "rgb": {
+                  "r": 158,
+                  "g": 69,
+                  "b": 176
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "12cae69e-433a-421b-96b3-4d6eaa4c4b34",
+                "hex": "#1fc757",
+                "hsl": {
+                  "h": 140,
+                  "s": 73,
+                  "l": 45
+                },
+                "rgb": {
+                  "r": 31,
+                  "g": 199,
+                  "b": 87
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "b7ce6388-6ef5-4c3e-8e8f-b1d56fe69517",
+                "hex": "#e1d856",
+                "hsl": {
+                  "h": 56,
+                  "s": 70,
+                  "l": 61
+                },
+                "rgb": {
+                  "r": 225,
+                  "g": 216,
+                  "b": 86
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "1eb33396-ab33-4cdc-a117-f69ee3de94ee",
+              "hex": "#92b148",
+              "hsl": {
+                "h": 78,
+                "s": 42,
+                "l": 49
+              },
+              "rgb": {
+                "r": 146,
+                "g": 177,
+                "b": 72
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:33:49.183Z"
+          },
+          {
+            "round": 2,
+            "colorsShown": [
+              {
+                "id": "6e24c7a0-4689-48c4-a93c-6641f608cc4c",
+                "hex": "#ad3fc6",
+                "hsl": {
+                  "h": 289,
+                  "s": 54,
+                  "l": 51
+                },
+                "rgb": {
+                  "r": 173,
+                  "g": 63,
+                  "b": 198
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "69aee312-7e3f-4d0b-9453-4e712c18db01",
+                "hex": "#d069dd",
+                "hsl": {
+                  "h": 293,
+                  "s": 63,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 208,
+                  "g": 105,
+                  "b": 221
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "16cc7685-631e-4b74-934a-ebd498b2a95a",
+                "hex": "#984b3a",
+                "hsl": {
+                  "h": 11,
+                  "s": 45,
+                  "l": 41
+                },
+                "rgb": {
+                  "r": 152,
+                  "g": 75,
+                  "b": 58
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "d487be68-0108-4b3d-8fdc-70490307947d",
+                "hex": "#9a5ae2",
+                "hsl": {
+                  "h": 268,
+                  "s": 70,
+                  "l": 62
+                },
+                "rgb": {
+                  "r": 154,
+                  "g": 90,
+                  "b": 226
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "2f2f01b5-8cc1-4dda-a0c5-f9969d6fb02a",
+                "hex": "#a22ac0",
+                "hsl": {
+                  "h": 288,
+                  "s": 64,
+                  "l": 46
+                },
+                "rgb": {
+                  "r": 162,
+                  "g": 42,
+                  "b": 192
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f86bb452-fce3-442d-9697-c078799b263d",
+                "hex": "#833468",
+                "hsl": {
+                  "h": 321,
+                  "s": 43,
+                  "l": 36
+                },
+                "rgb": {
+                  "r": 131,
+                  "g": 52,
+                  "b": 104
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "16cc7685-631e-4b74-934a-ebd498b2a95a",
+              "hex": "#984b3a",
+              "hsl": {
+                "h": 11,
+                "s": 45,
+                "l": 41
+              },
+              "rgb": {
+                "r": 152,
+                "g": 75,
+                "b": 58
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:33:50.275Z"
+          },
+          {
+            "round": 3,
+            "colorsShown": [
+              {
+                "id": "7eccf7ec-1fd7-4679-908e-a8ac33998490",
+                "hex": "#d42b50",
+                "hsl": {
+                  "h": 347,
+                  "s": 66,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 212,
+                  "g": 43,
+                  "b": 80
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "6196370a-76e8-4f7a-ab73-c59974b89b38",
+                "hex": "#c32894",
+                "hsl": {
+                  "h": 318,
+                  "s": 66,
+                  "l": 46
+                },
+                "rgb": {
+                  "r": 195,
+                  "g": 40,
+                  "b": 148
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "742ca3ba-11f7-4e67-8747-8dd0277790ff",
+                "hex": "#9e2e51",
+                "hsl": {
+                  "h": 341,
+                  "s": 55,
+                  "l": 40
+                },
+                "rgb": {
+                  "r": 158,
+                  "g": 46,
+                  "b": 81
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "1615c898-29cd-4cc2-a0aa-c157a11c03cc",
+                "hex": "#a56fd8",
+                "hsl": {
+                  "h": 271,
+                  "s": 57,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 165,
+                  "g": 111,
+                  "b": 216
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "a19129c2-89b9-499b-af90-8b71e26f2a2f",
+                "hex": "#722ca0",
+                "hsl": {
+                  "h": 276,
+                  "s": 57,
+                  "l": 40
+                },
+                "rgb": {
+                  "r": 114,
+                  "g": 44,
+                  "b": 160
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f7c850df-5480-4a69-bc4e-0f6288d20326",
+                "hex": "#2e3985",
+                "hsl": {
+                  "h": 232,
+                  "s": 49,
+                  "l": 35
+                },
+                "rgb": {
+                  "r": 46,
+                  "g": 57,
+                  "b": 133
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "a19129c2-89b9-499b-af90-8b71e26f2a2f",
+              "hex": "#722ca0",
+              "hsl": {
+                "h": 276,
+                "s": 57,
+                "l": 40
+              },
+              "rgb": {
+                "r": 114,
+                "g": 44,
+                "b": 160
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:33:51.834Z"
+          },
+          {
+            "round": 4,
+            "colorsShown": [
+              {
+                "id": "a1d17a1c-844d-4a0b-9f06-495f60496fae",
+                "hex": "#5e73e8",
+                "hsl": {
+                  "h": 231,
+                  "s": 75,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 94,
+                  "g": 115,
+                  "b": 232
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "ba6a7729-191d-4b3a-bea5-cef162720fc0",
+                "hex": "#183db4",
+                "hsl": {
+                  "h": 226,
+                  "s": 76,
+                  "l": 40
+                },
+                "rgb": {
+                  "r": 24,
+                  "g": 61,
+                  "b": 180
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "740d066c-8bb0-4eca-9f88-bdf6538c9f30",
+                "hex": "#6170bd",
+                "hsl": {
+                  "h": 230,
+                  "s": 41,
+                  "l": 56
+                },
+                "rgb": {
+                  "r": 97,
+                  "g": 112,
+                  "b": 189
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "cb3d7407-ba44-428c-b464-7b5ce04c5747",
+                "hex": "#908731",
+                "hsl": {
+                  "h": 54,
+                  "s": 49,
+                  "l": 38
+                },
+                "rgb": {
+                  "r": 144,
+                  "g": 135,
+                  "b": 49
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "04116a5b-719f-4bc4-981a-f2ee44ecda13",
+                "hex": "#6f37ae",
+                "hsl": {
+                  "h": 268,
+                  "s": 52,
+                  "l": 45
+                },
+                "rgb": {
+                  "r": 111,
+                  "g": 55,
+                  "b": 174
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "a7ccafa3-2e58-459c-84e2-ca36198b555c",
+                "hex": "#de5985",
+                "hsl": {
+                  "h": 340,
+                  "s": 67,
+                  "l": 61
+                },
+                "rgb": {
+                  "r": 222,
+                  "g": 89,
+                  "b": 133
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "cb3d7407-ba44-428c-b464-7b5ce04c5747",
+              "hex": "#908731",
+              "hsl": {
+                "h": 54,
+                "s": 49,
+                "l": 38
+              },
+              "rgb": {
+                "r": 144,
+                "g": 135,
+                "b": 49
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:33:52.818Z"
+          },
+          {
+            "round": 5,
+            "colorsShown": [
+              {
+                "id": "348b4efe-163a-4a7f-b92e-06b575a07e8c",
+                "hex": "#c15c9e",
+                "hsl": {
+                  "h": 321,
+                  "s": 45,
+                  "l": 56
+                },
+                "rgb": {
+                  "r": 193,
+                  "g": 92,
+                  "b": 158
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "dd97495b-f40c-4837-8059-e20f872b317c",
+                "hex": "#aa65d2",
+                "hsl": {
+                  "h": 278,
+                  "s": 55,
+                  "l": 61
+                },
+                "rgb": {
+                  "r": 170,
+                  "g": 101,
+                  "b": 210
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "d34c6d08-cc9c-4bfb-aa6e-046c5d9b5bf2",
+                "hex": "#93593e",
+                "hsl": {
+                  "h": 19,
+                  "s": 41,
+                  "l": 41
+                },
+                "rgb": {
+                  "r": 147,
+                  "g": 89,
+                  "b": 62
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "2658456f-47af-4191-9161-a9c6b11ff098",
+                "hex": "#d8ac6e",
+                "hsl": {
+                  "h": 35,
+                  "s": 58,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 216,
+                  "g": 172,
+                  "b": 110
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "fc00d56e-083f-4b59-bb36-f69e569cfb63",
+                "hex": "#87cd51",
+                "hsl": {
+                  "h": 94,
+                  "s": 55,
+                  "l": 56
+                },
+                "rgb": {
+                  "r": 135,
+                  "g": 205,
+                  "b": 81
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "79b5f6ea-5485-4e6c-84ed-969c95a2a22c",
+                "hex": "#6eca49",
+                "hsl": {
+                  "h": 103,
+                  "s": 55,
+                  "l": 54
+                },
+                "rgb": {
+                  "r": 110,
+                  "g": 202,
+                  "b": 73
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "d34c6d08-cc9c-4bfb-aa6e-046c5d9b5bf2",
+              "hex": "#93593e",
+              "hsl": {
+                "h": 19,
+                "s": 41,
+                "l": 41
+              },
+              "rgb": {
+                "r": 147,
+                "g": 89,
+                "b": 62
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:33:54.050Z"
+          }
+        ],
+        "favorites": [
+          {
+            "id": "a19129c2-89b9-499b-af90-8b71e26f2a2f",
+            "hex": "#722ca0",
+            "hsl": {
+              "h": 276,
+              "s": 57,
+              "l": 40
+            },
+            "rgb": {
+              "r": 114,
+              "g": 44,
+              "b": 160
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "d34c6d08-cc9c-4bfb-aa6e-046c5d9b5bf2",
+            "hex": "#93593e",
+            "hsl": {
+              "h": 19,
+              "s": 41,
+              "l": 41
+            },
+            "rgb": {
+              "r": 147,
+              "g": 89,
+              "b": 62
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "cb3d7407-ba44-428c-b464-7b5ce04c5747",
+            "hex": "#908731",
+            "hsl": {
+              "h": 54,
+              "s": 49,
+              "l": 38
+            },
+            "rgb": {
+              "r": 144,
+              "g": 135,
+              "b": 49
+            },
+            "selectionCount": 1
+          }
+        ],
+        "finalTop3": [
+          {
+            "id": "a19129c2-89b9-499b-af90-8b71e26f2a2f",
+            "hex": "#722ca0",
+            "hsl": {
+              "h": 276,
+              "s": 57,
+              "l": 40
+            },
+            "rgb": {
+              "r": 114,
+              "g": 44,
+              "b": 160
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "cb3d7407-ba44-428c-b464-7b5ce04c5747",
+            "hex": "#908731",
+            "hsl": {
+              "h": 54,
+              "s": 49,
+              "l": 38
+            },
+            "rgb": {
+              "r": 144,
+              "g": 135,
+              "b": 49
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "d34c6d08-cc9c-4bfb-aa6e-046c5d9b5bf2",
+            "hex": "#93593e",
+            "hsl": {
+              "h": 19,
+              "s": 41,
+              "l": 41
+            },
+            "rgb": {
+              "r": 147,
+              "g": 89,
+              "b": 62
+            },
+            "selectionCount": 1
+          }
+        ],
+        "gamePhase": "complete",
+        "startTime": "2025-08-07T14:33:35.196Z"
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+      "screenSize": {
+        "width": 1680,
+        "height": 1050
+      },
+      "completedAt": "2025-08-07T14:34:04.463Z"
+    },
+    {
+      "id": "e6ea8c02-74c2-4809-a72e-e60c1bc92f49",
+      "gameState": {
+        "currentRound": 5,
+        "totalRounds": 5,
+        "colorsPerRound": 6,
+        "selectedColors": [
+          {
+            "id": "089c1d12-5037-4508-8150-08a96fea8d50",
+            "hex": "#614051",
+            "hsl": {
+              "h": 325,
+              "s": 20,
+              "l": 34
+            },
+            "rgb": {
+              "r": 97,
+              "g": 64,
+              "b": 81
+            },
+            "selectionCount": 3
+          },
+          {
+            "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+            "hex": "#DC143C",
+            "hsl": {
+              "h": 348,
+              "s": 83,
+              "l": 47
+            },
+            "rgb": {
+              "r": 220,
+              "g": 20,
+              "b": 60
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "0ac9ded2-5c9d-48a8-8487-a71651745eb8",
+            "hex": "#DE5D83",
+            "hsl": {
+              "h": 343,
+              "s": 61,
+              "l": 61
+            },
+            "rgb": {
+              "r": 222,
+              "g": 93,
+              "b": 131
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "859e3fa6-387e-409b-bab7-2a25320a767d",
+            "hex": "#228B22",
+            "hsl": {
+              "h": 120,
+              "s": 61,
+              "l": 34
+            },
+            "rgb": {
+              "r": 34,
+              "g": 139,
+              "b": 34
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "839c13e1-96c3-4161-8fb8-6f276f4ff06f",
+            "hex": "#E6E6FA",
+            "hsl": {
+              "h": 240,
+              "s": 67,
+              "l": 94
+            },
+            "rgb": {
+              "r": 230,
+              "g": 230,
+              "b": 250
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "f619b0ed-1bdd-4df8-aa7c-c172f1ebd873",
+            "hex": "#FFC30F",
+            "hsl": {
+              "h": 46,
+              "s": 100,
+              "l": 53
+            },
+            "rgb": {
+              "r": 255,
+              "g": 195,
+              "b": 15
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "58d5f2c6-6018-4188-9713-5eeb478882a4",
+            "hex": "#FF6347",
+            "hsl": {
+              "h": 9,
+              "s": 100,
+              "l": 64
+            },
+            "rgb": {
+              "r": 255,
+              "g": 99,
+              "b": 71
+            },
+            "selectionCount": 1
+          }
+        ],
+        "roundHistory": [
+          {
+            "round": 1,
+            "colorsShown": [
+              {
+                "id": "09cbece1-5f2e-46a1-9a2f-1944ea4c65ea",
+                "hex": "#F4C430",
+                "hsl": {
+                  "h": 45,
+                  "s": 89,
+                  "l": 57
+                },
+                "rgb": {
+                  "r": 244,
+                  "g": 196,
+                  "b": 48
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "089c1d12-5037-4508-8150-08a96fea8d50",
+                "hex": "#614051",
+                "hsl": {
+                  "h": 325,
+                  "s": 20,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 97,
+                  "g": 64,
+                  "b": 81
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "2b02e0d2-360b-48f0-ad9f-0db5e77a2bbd",
+                "hex": "#DDA0DD",
+                "hsl": {
+                  "h": 300,
+                  "s": 47,
+                  "l": 75
+                },
+                "rgb": {
+                  "r": 221,
+                  "g": 160,
+                  "b": 221
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "41ca99fb-fa43-460c-8916-c03babe2638d",
+                "hex": "#FF8C00",
+                "hsl": {
+                  "h": 33,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 140,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "508062bd-5be3-4d0d-bbe8-c11a3f40c415",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+                "hex": "#DC143C",
+                "hsl": {
+                  "h": 348,
+                  "s": 83,
+                  "l": 47
+                },
+                "rgb": {
+                  "r": 220,
+                  "g": 20,
+                  "b": 60
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "089c1d12-5037-4508-8150-08a96fea8d50",
+              "hex": "#614051",
+              "hsl": {
+                "h": 325,
+                "s": 20,
+                "l": 34
+              },
+              "rgb": {
+                "r": 97,
+                "g": 64,
+                "b": 81
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:57:52.884Z"
+          },
+          {
+            "round": 1,
+            "colorsShown": [
+              {
+                "id": "09cbece1-5f2e-46a1-9a2f-1944ea4c65ea",
+                "hex": "#F4C430",
+                "hsl": {
+                  "h": 45,
+                  "s": 89,
+                  "l": 57
+                },
+                "rgb": {
+                  "r": 244,
+                  "g": 196,
+                  "b": 48
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "089c1d12-5037-4508-8150-08a96fea8d50",
+                "hex": "#614051",
+                "hsl": {
+                  "h": 325,
+                  "s": 20,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 97,
+                  "g": 64,
+                  "b": 81
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "2b02e0d2-360b-48f0-ad9f-0db5e77a2bbd",
+                "hex": "#DDA0DD",
+                "hsl": {
+                  "h": 300,
+                  "s": 47,
+                  "l": 75
+                },
+                "rgb": {
+                  "r": 221,
+                  "g": 160,
+                  "b": 221
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "41ca99fb-fa43-460c-8916-c03babe2638d",
+                "hex": "#FF8C00",
+                "hsl": {
+                  "h": 33,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 140,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "508062bd-5be3-4d0d-bbe8-c11a3f40c415",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+                "hex": "#DC143C",
+                "hsl": {
+                  "h": 348,
+                  "s": 83,
+                  "l": 47
+                },
+                "rgb": {
+                  "r": 220,
+                  "g": 20,
+                  "b": 60
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+              "hex": "#DC143C",
+              "hsl": {
+                "h": 348,
+                "s": 83,
+                "l": 47
+              },
+              "rgb": {
+                "r": 220,
+                "g": 20,
+                "b": 60
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:57:54.194Z"
+          },
+          {
+            "round": 1,
+            "colorsShown": [
+              {
+                "id": "09cbece1-5f2e-46a1-9a2f-1944ea4c65ea",
+                "hex": "#F4C430",
+                "hsl": {
+                  "h": 45,
+                  "s": 89,
+                  "l": 57
+                },
+                "rgb": {
+                  "r": 244,
+                  "g": 196,
+                  "b": 48
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "089c1d12-5037-4508-8150-08a96fea8d50",
+                "hex": "#614051",
+                "hsl": {
+                  "h": 325,
+                  "s": 20,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 97,
+                  "g": 64,
+                  "b": 81
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "2b02e0d2-360b-48f0-ad9f-0db5e77a2bbd",
+                "hex": "#DDA0DD",
+                "hsl": {
+                  "h": 300,
+                  "s": 47,
+                  "l": 75
+                },
+                "rgb": {
+                  "r": 221,
+                  "g": 160,
+                  "b": 221
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "41ca99fb-fa43-460c-8916-c03babe2638d",
+                "hex": "#FF8C00",
+                "hsl": {
+                  "h": 33,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 140,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "508062bd-5be3-4d0d-bbe8-c11a3f40c415",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+                "hex": "#DC143C",
+                "hsl": {
+                  "h": 348,
+                  "s": 83,
+                  "l": 47
+                },
+                "rgb": {
+                  "r": 220,
+                  "g": 20,
+                  "b": 60
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "089c1d12-5037-4508-8150-08a96fea8d50",
+              "hex": "#614051",
+              "hsl": {
+                "h": 325,
+                "s": 20,
+                "l": 34
+              },
+              "rgb": {
+                "r": 97,
+                "g": 64,
+                "b": 81
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:57:55.434Z"
+          },
+          {
+            "round": 2,
+            "colorsShown": [
+              {
+                "id": "02ba6dd9-5c73-4633-a07c-b2fed9d343c0",
+                "hex": "#0077BE",
+                "hsl": {
+                  "h": 203,
+                  "s": 100,
+                  "l": 37
+                },
+                "rgb": {
+                  "r": 0,
+                  "g": 119,
+                  "b": 190
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "4b7e36cd-5aff-4395-bbd4-a3e08241af22",
+                "hex": "#FBEC5D",
+                "hsl": {
+                  "h": 55,
+                  "s": 95,
+                  "l": 68
+                },
+                "rgb": {
+                  "r": 251,
+                  "g": 236,
+                  "b": 93
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "0ac9ded2-5c9d-48a8-8487-a71651745eb8",
+                "hex": "#DE5D83",
+                "hsl": {
+                  "h": 343,
+                  "s": 61,
+                  "l": 61
+                },
+                "rgb": {
+                  "r": 222,
+                  "g": 93,
+                  "b": 131
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "78d53b96-986b-4a02-bd2e-d6f5ae7bb187",
+                "hex": "#9CAF88",
+                "hsl": {
+                  "h": 94,
+                  "s": 25,
+                  "l": 62
+                },
+                "rgb": {
+                  "r": 156,
+                  "g": 175,
+                  "b": 136
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "db1f8567-17dc-4e67-9e13-c84816a0f076",
+                "hex": "#FFC0CB",
+                "hsl": {
+                  "h": 350,
+                  "s": 100,
+                  "l": 88
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 192,
+                  "b": 203
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "5ff97a04-a219-43c1-9212-d9b5304adae7",
+                "hex": "#614051",
+                "hsl": {
+                  "h": 325,
+                  "s": 20,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 97,
+                  "g": 64,
+                  "b": 81
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "0ac9ded2-5c9d-48a8-8487-a71651745eb8",
+              "hex": "#DE5D83",
+              "hsl": {
+                "h": 343,
+                "s": 61,
+                "l": 61
+              },
+              "rgb": {
+                "r": 222,
+                "g": 93,
+                "b": 131
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:57:56.639Z"
+          },
+          {
+            "round": 3,
+            "colorsShown": [
+              {
+                "id": "cd233b8c-1e26-44c1-987a-ffd6bd42df1f",
+                "hex": "#FBCEB1",
+                "hsl": {
+                  "h": 24,
+                  "s": 90,
+                  "l": 84
+                },
+                "rgb": {
+                  "r": 251,
+                  "g": 206,
+                  "b": 177
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "b8a846df-5a46-48e5-ab51-13b56c03e03c",
+                "hex": "#008080",
+                "hsl": {
+                  "h": 180,
+                  "s": 100,
+                  "l": 25
+                },
+                "rgb": {
+                  "r": 0,
+                  "g": 128,
+                  "b": 128
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "0a295c6d-8362-46da-8fe3-114b86f55d5a",
+                "hex": "#32CD32",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 50,
+                  "g": 205,
+                  "b": 50
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "01d36e45-a796-4043-8445-7ba7e6189a86",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "7d981060-79ad-48b0-8651-41d16b81764a",
+                "hex": "#FFC0CB",
+                "hsl": {
+                  "h": 350,
+                  "s": 100,
+                  "l": 88
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 192,
+                  "b": 203
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "859e3fa6-387e-409b-bab7-2a25320a767d",
+                "hex": "#228B22",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 34,
+                  "g": 139,
+                  "b": 34
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "859e3fa6-387e-409b-bab7-2a25320a767d",
+              "hex": "#228B22",
+              "hsl": {
+                "h": 120,
+                "s": 61,
+                "l": 34
+              },
+              "rgb": {
+                "r": 34,
+                "g": 139,
+                "b": 34
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:57:58.286Z"
+          },
+          {
+            "round": 4,
+            "colorsShown": [
+              {
+                "id": "d4823b5c-3eea-410e-b0a9-602b0d146abe",
+                "hex": "#32CD32",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 50,
+                  "g": 205,
+                  "b": 50
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "a0582e7f-10d3-4b24-9bd2-94f0804e3c31",
+                "hex": "#FFFACD",
+                "hsl": {
+                  "h": 54,
+                  "s": 100,
+                  "l": 90
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 250,
+                  "b": 205
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f619b0ed-1bdd-4df8-aa7c-c172f1ebd873",
+                "hex": "#FFC30F",
+                "hsl": {
+                  "h": 46,
+                  "s": 100,
+                  "l": 53
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 195,
+                  "b": 15
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "839c13e1-96c3-4161-8fb8-6f276f4ff06f",
+                "hex": "#E6E6FA",
+                "hsl": {
+                  "h": 240,
+                  "s": 67,
+                  "l": 94
+                },
+                "rgb": {
+                  "r": 230,
+                  "g": 230,
+                  "b": 250
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "32694afd-73fb-4fca-8b47-67a27ea34c17",
+                "hex": "#FFA500",
+                "hsl": {
+                  "h": 39,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 165,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "fc68c2d5-22ba-4cfe-8037-c38c92703922",
+                "hex": "#FFCC5C",
+                "hsl": {
+                  "h": 42,
+                  "s": 100,
+                  "l": 68
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 204,
+                  "b": 92
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "839c13e1-96c3-4161-8fb8-6f276f4ff06f",
+              "hex": "#E6E6FA",
+              "hsl": {
+                "h": 240,
+                "s": 67,
+                "l": 94
+              },
+              "rgb": {
+                "r": 230,
+                "g": 230,
+                "b": 250
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:57:59.294Z"
+          },
+          {
+            "round": 4,
+            "colorsShown": [
+              {
+                "id": "d4823b5c-3eea-410e-b0a9-602b0d146abe",
+                "hex": "#32CD32",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 50,
+                  "g": 205,
+                  "b": 50
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "a0582e7f-10d3-4b24-9bd2-94f0804e3c31",
+                "hex": "#FFFACD",
+                "hsl": {
+                  "h": 54,
+                  "s": 100,
+                  "l": 90
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 250,
+                  "b": 205
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f619b0ed-1bdd-4df8-aa7c-c172f1ebd873",
+                "hex": "#FFC30F",
+                "hsl": {
+                  "h": 46,
+                  "s": 100,
+                  "l": 53
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 195,
+                  "b": 15
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "839c13e1-96c3-4161-8fb8-6f276f4ff06f",
+                "hex": "#E6E6FA",
+                "hsl": {
+                  "h": 240,
+                  "s": 67,
+                  "l": 94
+                },
+                "rgb": {
+                  "r": 230,
+                  "g": 230,
+                  "b": 250
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "32694afd-73fb-4fca-8b47-67a27ea34c17",
+                "hex": "#FFA500",
+                "hsl": {
+                  "h": 39,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 165,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "fc68c2d5-22ba-4cfe-8037-c38c92703922",
+                "hex": "#FFCC5C",
+                "hsl": {
+                  "h": 42,
+                  "s": 100,
+                  "l": 68
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 204,
+                  "b": 92
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "f619b0ed-1bdd-4df8-aa7c-c172f1ebd873",
+              "hex": "#FFC30F",
+              "hsl": {
+                "h": 46,
+                "s": 100,
+                "l": 53
+              },
+              "rgb": {
+                "r": 255,
+                "g": 195,
+                "b": 15
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:00.127Z"
+          },
+          {
+            "round": 5,
+            "colorsShown": [
+              {
+                "id": "479c0de4-d62b-4a28-9547-c881fbeb3669",
+                "hex": "#9CAF88",
+                "hsl": {
+                  "h": 94,
+                  "s": 25,
+                  "l": 62
+                },
+                "rgb": {
+                  "r": 156,
+                  "g": 175,
+                  "b": 136
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "93dd4de1-71e3-4885-ad41-2176ae6a3c47",
+                "hex": "#0077BE",
+                "hsl": {
+                  "h": 203,
+                  "s": 100,
+                  "l": 37
+                },
+                "rgb": {
+                  "r": 0,
+                  "g": 119,
+                  "b": 190
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "ff093e14-5ca4-4a68-8d4b-fd65bfd0ee1b",
+                "hex": "#B22222",
+                "hsl": {
+                  "h": 0,
+                  "s": 68,
+                  "l": 42
+                },
+                "rgb": {
+                  "r": 178,
+                  "g": 34,
+                  "b": 34
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "6f0d6c04-6e01-44f3-b37f-a2c47318e04c",
+                "hex": "#F4C430",
+                "hsl": {
+                  "h": 45,
+                  "s": 89,
+                  "l": 57
+                },
+                "rgb": {
+                  "r": 244,
+                  "g": 196,
+                  "b": 48
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "283ab713-b026-429e-be3f-5d54f7a26ca9",
+                "hex": "#87CEEB",
+                "hsl": {
+                  "h": 197,
+                  "s": 71,
+                  "l": 73
+                },
+                "rgb": {
+                  "r": 135,
+                  "g": 206,
+                  "b": 235
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "58d5f2c6-6018-4188-9713-5eeb478882a4",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "58d5f2c6-6018-4188-9713-5eeb478882a4",
+              "hex": "#FF6347",
+              "hsl": {
+                "h": 9,
+                "s": 100,
+                "l": 64
+              },
+              "rgb": {
+                "r": 255,
+                "g": 99,
+                "b": 71
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:02.428Z"
+          }
+        ],
+        "favorites": [
+          {
+            "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+            "hex": "#DC143C",
+            "hsl": {
+              "h": 348,
+              "s": 83,
+              "l": 47
+            },
+            "rgb": {
+              "r": 220,
+              "g": 20,
+              "b": 60
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "f619b0ed-1bdd-4df8-aa7c-c172f1ebd873",
+            "hex": "#FFC30F",
+            "hsl": {
+              "h": 46,
+              "s": 100,
+              "l": 53
+            },
+            "rgb": {
+              "r": 255,
+              "g": 195,
+              "b": 15
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "58d5f2c6-6018-4188-9713-5eeb478882a4",
+            "hex": "#FF6347",
+            "hsl": {
+              "h": 9,
+              "s": 100,
+              "l": 64
+            },
+            "rgb": {
+              "r": 255,
+              "g": 99,
+              "b": 71
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "0ac9ded2-5c9d-48a8-8487-a71651745eb8",
+            "hex": "#DE5D83",
+            "hsl": {
+              "h": 343,
+              "s": 61,
+              "l": 61
+            },
+            "rgb": {
+              "r": 222,
+              "g": 93,
+              "b": 131
+            },
+            "selectionCount": 1
+          }
+        ],
+        "finalTop3": [
+          {
+            "id": "f5d7998c-b1e5-4555-a2d5-1066a0d73b5e",
+            "hex": "#DC143C",
+            "hsl": {
+              "h": 348,
+              "s": 83,
+              "l": 47
+            },
+            "rgb": {
+              "r": 220,
+              "g": 20,
+              "b": 60
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "f619b0ed-1bdd-4df8-aa7c-c172f1ebd873",
+            "hex": "#FFC30F",
+            "hsl": {
+              "h": 46,
+              "s": 100,
+              "l": 53
+            },
+            "rgb": {
+              "r": 255,
+              "g": 195,
+              "b": 15
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "0ac9ded2-5c9d-48a8-8487-a71651745eb8",
+            "hex": "#DE5D83",
+            "hsl": {
+              "h": 343,
+              "s": 61,
+              "l": 61
+            },
+            "rgb": {
+              "r": 222,
+              "g": 93,
+              "b": 131
+            },
+            "selectionCount": 1
+          }
+        ],
+        "gamePhase": "complete",
+        "startTime": "2025-08-07T14:57:49.973Z"
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+      "screenSize": {
+        "width": 1680,
+        "height": 1050
+      },
+      "completedAt": "2025-08-07T14:58:22.245Z"
+    },
+    {
+      "id": "383c45e9-5606-4a58-8ea8-a4109dbe2ae2",
+      "gameState": {
+        "currentRound": 5,
+        "totalRounds": 5,
+        "colorsPerRound": 6,
+        "selectedColors": [
+          {
+            "id": "7f314cff-b35d-4689-9713-1aa19b92ec51",
+            "hex": "#722F37",
+            "hsl": {
+              "h": 353,
+              "s": 42,
+              "l": 32
+            },
+            "rgb": {
+              "r": 114,
+              "g": 47,
+              "b": 55
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "2825390f-4912-4843-b6e4-f5669d2d8692",
+            "hex": "#D2691E",
+            "hsl": {
+              "h": 25,
+              "s": 75,
+              "l": 47
+            },
+            "rgb": {
+              "r": 210,
+              "g": 105,
+              "b": 30
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "9226d357-c902-4803-9b5e-ac18a6377200",
+            "hex": "#FFC30F",
+            "hsl": {
+              "h": 46,
+              "s": 100,
+              "l": 53
+            },
+            "rgb": {
+              "r": 255,
+              "g": 195,
+              "b": 15
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "43ff5111-e6ce-4070-8629-75f4590d95da",
+            "hex": "#ED9121",
+            "hsl": {
+              "h": 34,
+              "s": 85,
+              "l": 54
+            },
+            "rgb": {
+              "r": 237,
+              "g": 145,
+              "b": 33
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "413ee3bd-fb79-496b-b13e-ee981a52cf76",
+            "hex": "#FBCEB1",
+            "hsl": {
+              "h": 24,
+              "s": 90,
+              "l": 84
+            },
+            "rgb": {
+              "r": 251,
+              "g": 206,
+              "b": 177
+            },
+            "selectionCount": 1
+          }
+        ],
+        "roundHistory": [
+          {
+            "round": 1,
+            "colorsShown": [
+              {
+                "id": "04246066-c545-41c3-9fe7-192b61075d59",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "7f314cff-b35d-4689-9713-1aa19b92ec51",
+                "hex": "#722F37",
+                "hsl": {
+                  "h": 353,
+                  "s": 42,
+                  "l": 32
+                },
+                "rgb": {
+                  "r": 114,
+                  "g": 47,
+                  "b": 55
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "0243c7f2-d6c2-4c2e-b9df-3123ef0454ec",
+                "hex": "#FF69B4",
+                "hsl": {
+                  "h": 330,
+                  "s": 100,
+                  "l": 71
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 105,
+                  "b": 180
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "6ec9ed2c-e8bb-4b63-a1aa-5dbd891e1c89",
+                "hex": "#FF7F50",
+                "hsl": {
+                  "h": 16,
+                  "s": 100,
+                  "l": 66
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 127,
+                  "b": 80
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "45891095-8ed0-4b61-870f-ca4aee1415d2",
+                "hex": "#E6E6FA",
+                "hsl": {
+                  "h": 240,
+                  "s": 67,
+                  "l": 94
+                },
+                "rgb": {
+                  "r": 230,
+                  "g": 230,
+                  "b": 250
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "ea36834d-5857-4963-af14-073dbf325fe9",
+                "hex": "#D2691E",
+                "hsl": {
+                  "h": 25,
+                  "s": 75,
+                  "l": 47
+                },
+                "rgb": {
+                  "r": 210,
+                  "g": 105,
+                  "b": 30
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "7f314cff-b35d-4689-9713-1aa19b92ec51",
+              "hex": "#722F37",
+              "hsl": {
+                "h": 353,
+                "s": 42,
+                "l": 32
+              },
+              "rgb": {
+                "r": 114,
+                "g": 47,
+                "b": 55
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:27.143Z"
+          },
+          {
+            "round": 2,
+            "colorsShown": [
+              {
+                "id": "925a9485-b809-42cd-b23f-ac01b2fc4645",
+                "hex": "#FFA500",
+                "hsl": {
+                  "h": 39,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 165,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "13321c05-896c-4b65-8190-ca1fefe262a9",
+                "hex": "#FBEC5D",
+                "hsl": {
+                  "h": 55,
+                  "s": 95,
+                  "l": 68
+                },
+                "rgb": {
+                  "r": 251,
+                  "g": 236,
+                  "b": 93
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "1baa306b-48c7-412d-bb5a-5f5ed8fa43dd",
+                "hex": "#FFFACD",
+                "hsl": {
+                  "h": 54,
+                  "s": 100,
+                  "l": 90
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 250,
+                  "b": 205
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "709c8c37-f448-42e9-9683-dde72ef74fd4",
+                "hex": "#808000",
+                "hsl": {
+                  "h": 60,
+                  "s": 100,
+                  "l": 25
+                },
+                "rgb": {
+                  "r": 128,
+                  "g": 128,
+                  "b": 0
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "998a61a4-fd66-4cc5-935e-c30c6bacf8a9",
+                "hex": "#228B22",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 34,
+                  "g": 139,
+                  "b": 34
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "2825390f-4912-4843-b6e4-f5669d2d8692",
+                "hex": "#D2691E",
+                "hsl": {
+                  "h": 25,
+                  "s": 75,
+                  "l": 47
+                },
+                "rgb": {
+                  "r": 210,
+                  "g": 105,
+                  "b": 30
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "2825390f-4912-4843-b6e4-f5669d2d8692",
+              "hex": "#D2691E",
+              "hsl": {
+                "h": 25,
+                "s": 75,
+                "l": 47
+              },
+              "rgb": {
+                "r": 210,
+                "g": 105,
+                "b": 30
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:28.643Z"
+          },
+          {
+            "round": 3,
+            "colorsShown": [
+              {
+                "id": "71249778-2740-4e36-8b5d-2b315e04e302",
+                "hex": "#32CD32",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 50,
+                  "g": 205,
+                  "b": 50
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "b67670db-6002-4489-afb6-193e6e3032c3",
+                "hex": "#DC143C",
+                "hsl": {
+                  "h": 348,
+                  "s": 83,
+                  "l": 47
+                },
+                "rgb": {
+                  "r": 220,
+                  "g": 20,
+                  "b": 60
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "9226d357-c902-4803-9b5e-ac18a6377200",
+                "hex": "#FFC30F",
+                "hsl": {
+                  "h": 46,
+                  "s": 100,
+                  "l": 53
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 195,
+                  "b": 15
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "99a0768a-82ea-4092-8342-6b794211e953",
+                "hex": "#F5F5DC",
+                "hsl": {
+                  "h": 60,
+                  "s": 56,
+                  "l": 91
+                },
+                "rgb": {
+                  "r": 245,
+                  "g": 245,
+                  "b": 220
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "b9f4d8bd-cc9e-4877-99c0-fba6098e2f7d",
+                "hex": "#0077BE",
+                "hsl": {
+                  "h": 203,
+                  "s": 100,
+                  "l": 37
+                },
+                "rgb": {
+                  "r": 0,
+                  "g": 119,
+                  "b": 190
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "862c7002-8fd1-4005-a60a-de0a07bcad16",
+                "hex": "#D2B48C",
+                "hsl": {
+                  "h": 34,
+                  "s": 44,
+                  "l": 69
+                },
+                "rgb": {
+                  "r": 210,
+                  "g": 180,
+                  "b": 140
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "9226d357-c902-4803-9b5e-ac18a6377200",
+              "hex": "#FFC30F",
+              "hsl": {
+                "h": 46,
+                "s": 100,
+                "l": 53
+              },
+              "rgb": {
+                "r": 255,
+                "g": 195,
+                "b": 15
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:29.344Z"
+          },
+          {
+            "round": 4,
+            "colorsShown": [
+              {
+                "id": "43ff5111-e6ce-4070-8629-75f4590d95da",
+                "hex": "#ED9121",
+                "hsl": {
+                  "h": 34,
+                  "s": 85,
+                  "l": 54
+                },
+                "rgb": {
+                  "r": 237,
+                  "g": 145,
+                  "b": 33
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "7a07ad8e-fd25-4fab-a07c-9d3de32301bd",
+                "hex": "#FF7F50",
+                "hsl": {
+                  "h": 16,
+                  "s": 100,
+                  "l": 66
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 127,
+                  "b": 80
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "0ebad707-e792-4294-85e1-e5887d55fc42",
+                "hex": "#FC5A8D",
+                "hsl": {
+                  "h": 343,
+                  "s": 96,
+                  "l": 67
+                },
+                "rgb": {
+                  "r": 252,
+                  "g": 90,
+                  "b": 141
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "b408ea29-ad52-4e97-8e9c-c10b868aa2f5",
+                "hex": "#87CEEB",
+                "hsl": {
+                  "h": 197,
+                  "s": 71,
+                  "l": 73
+                },
+                "rgb": {
+                  "r": 135,
+                  "g": 206,
+                  "b": 235
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "c62c8bc1-558e-42eb-9cb6-1f3ddfe1e69c",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "32197b85-bc08-49bc-9f2a-d2b08b31d742",
+                "hex": "#FFD700",
+                "hsl": {
+                  "h": 51,
+                  "s": 100,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 215,
+                  "b": 0
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "43ff5111-e6ce-4070-8629-75f4590d95da",
+              "hex": "#ED9121",
+              "hsl": {
+                "h": 34,
+                "s": 85,
+                "l": 54
+              },
+              "rgb": {
+                "r": 237,
+                "g": 145,
+                "b": 33
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:30.477Z"
+          },
+          {
+            "round": 5,
+            "colorsShown": [
+              {
+                "id": "31b9248d-1b17-44db-a0b1-4d90399fd088",
+                "hex": "#32CD32",
+                "hsl": {
+                  "h": 120,
+                  "s": 61,
+                  "l": 50
+                },
+                "rgb": {
+                  "r": 50,
+                  "g": 205,
+                  "b": 50
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "3776abc8-f3ea-46ac-b614-b116c3b61d04",
+                "hex": "#614051",
+                "hsl": {
+                  "h": 325,
+                  "s": 20,
+                  "l": 34
+                },
+                "rgb": {
+                  "r": 97,
+                  "g": 64,
+                  "b": 81
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "f8864e1a-e356-4db3-b4e9-b4b84d0364c0",
+                "hex": "#FF6347",
+                "hsl": {
+                  "h": 9,
+                  "s": 100,
+                  "l": 64
+                },
+                "rgb": {
+                  "r": 255,
+                  "g": 99,
+                  "b": 71
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "413ee3bd-fb79-496b-b13e-ee981a52cf76",
+                "hex": "#FBCEB1",
+                "hsl": {
+                  "h": 24,
+                  "s": 90,
+                  "l": 84
+                },
+                "rgb": {
+                  "r": 251,
+                  "g": 206,
+                  "b": 177
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "78c80767-429e-4de6-b1c1-d05939d29537",
+                "hex": "#DE5D83",
+                "hsl": {
+                  "h": 343,
+                  "s": 61,
+                  "l": 61
+                },
+                "rgb": {
+                  "r": 222,
+                  "g": 93,
+                  "b": 131
+                },
+                "selectionCount": 0
+              },
+              {
+                "id": "9ecf8cd9-2c74-4b8c-aac7-ace61f17d439",
+                "hex": "#800020",
+                "hsl": {
+                  "h": 345,
+                  "s": 100,
+                  "l": 25
+                },
+                "rgb": {
+                  "r": 128,
+                  "g": 0,
+                  "b": 32
+                },
+                "selectionCount": 0
+              }
+            ],
+            "selectedColor": {
+              "id": "413ee3bd-fb79-496b-b13e-ee981a52cf76",
+              "hex": "#FBCEB1",
+              "hsl": {
+                "h": 24,
+                "s": 90,
+                "l": 84
+              },
+              "rgb": {
+                "r": 251,
+                "g": 206,
+                "b": 177
+              },
+              "selectionCount": 1
+            },
+            "timeSpent": 0,
+            "timestamp": "2025-08-07T14:58:31.743Z"
+          }
+        ],
+        "favorites": [
+          {
+            "id": "2825390f-4912-4843-b6e4-f5669d2d8692",
+            "hex": "#D2691E",
+            "hsl": {
+              "h": 25,
+              "s": 75,
+              "l": 47
+            },
+            "rgb": {
+              "r": 210,
+              "g": 105,
+              "b": 30
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "413ee3bd-fb79-496b-b13e-ee981a52cf76",
+            "hex": "#FBCEB1",
+            "hsl": {
+              "h": 24,
+              "s": 90,
+              "l": 84
+            },
+            "rgb": {
+              "r": 251,
+              "g": 206,
+              "b": 177
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "7f314cff-b35d-4689-9713-1aa19b92ec51",
+            "hex": "#722F37",
+            "hsl": {
+              "h": 353,
+              "s": 42,
+              "l": 32
+            },
+            "rgb": {
+              "r": 114,
+              "g": 47,
+              "b": 55
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "9226d357-c902-4803-9b5e-ac18a6377200",
+            "hex": "#FFC30F",
+            "hsl": {
+              "h": 46,
+              "s": 100,
+              "l": 53
+            },
+            "rgb": {
+              "r": 255,
+              "g": 195,
+              "b": 15
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "43ff5111-e6ce-4070-8629-75f4590d95da",
+            "hex": "#ED9121",
+            "hsl": {
+              "h": 34,
+              "s": 85,
+              "l": 54
+            },
+            "rgb": {
+              "r": 237,
+              "g": 145,
+              "b": 33
+            },
+            "selectionCount": 1
+          }
+        ],
+        "finalTop3": [
+          {
+            "id": "2825390f-4912-4843-b6e4-f5669d2d8692",
+            "hex": "#D2691E",
+            "hsl": {
+              "h": 25,
+              "s": 75,
+              "l": 47
+            },
+            "rgb": {
+              "r": 210,
+              "g": 105,
+              "b": 30
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "413ee3bd-fb79-496b-b13e-ee981a52cf76",
+            "hex": "#FBCEB1",
+            "hsl": {
+              "h": 24,
+              "s": 90,
+              "l": 84
+            },
+            "rgb": {
+              "r": 251,
+              "g": 206,
+              "b": 177
+            },
+            "selectionCount": 1
+          },
+          {
+            "id": "7f314cff-b35d-4689-9713-1aa19b92ec51",
+            "hex": "#722F37",
+            "hsl": {
+              "h": 353,
+              "s": 42,
+              "l": 32
+            },
+            "rgb": {
+              "r": 114,
+              "g": 47,
+              "b": 55
+            },
+            "selectionCount": 1
+          }
+        ],
+        "gamePhase": "complete",
+        "startTime": "2025-08-07T14:58:25.575Z"
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+      "screenSize": {
+        "width": 1680,
+        "height": 1050
+      },
+      "completedAt": "2025-08-07T14:58:47.758Z"
+    }
+  ],
+  "lastUpdated": "2025-08-07T14:58:47.855Z"
+}

@@ -1,7 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { GameState, Color, RoundResult } from "@/types/game";
 import { generateColorSet } from "@/lib/colors";
-import { saveGameState, loadGameState, clearGameState } from "@/lib/storage";
+import {
+  saveGameState,
+  loadGameState,
+  clearGameState,
+  saveCompletedGame,
+} from "@/lib/storage";
 
 const INITIAL_GAME_STATE: GameState = {
   currentRound: 1,
@@ -37,6 +42,13 @@ export function useGameState() {
   useEffect(() => {
     if (gameState.currentRound > 1 || gameState.gamePhase !== "selection") {
       saveGameState(gameState);
+
+      // Save completed game to server
+      if (gameState.gamePhase === "complete") {
+        saveCompletedGame(gameState).catch((error) => {
+          console.error("Failed to save completed game:", error);
+        });
+      }
     }
   }, [gameState]);
 

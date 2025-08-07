@@ -37,11 +37,35 @@ export function clearGameState(): void {
   }
 }
 
-export function saveGameSession(session: GameSession): void {
+export async function saveGameSession(session: GameSession): Promise<void> {
   if (typeof window !== "undefined") {
+    // Save locally first
     const existingSessions = loadGameSessions();
     const updatedSessions = [...existingSessions, session];
     localStorage.setItem(GAME_SESSIONS_KEY, JSON.stringify(updatedSessions));
+
+    // Send to server if game is complete
+    if (session.gameState.gamePhase === "complete") {
+      try {
+        const response = await fetch("/api/game-results", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(session),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("Game session saved to server:", result.sessionId);
+      } catch (error) {
+        console.error("Failed to save to server, data saved locally:", error);
+        // Don't throw error - local storage is our fallback
+      }
+    }
   }
 }
 
@@ -73,4 +97,22 @@ export function getDeviceInfo() {
     userAgent: "unknown",
     screenSize: { width: 0, height: 0 },
   };
+}
+
+export async function saveCompletedGame(gameState: GameState): Promise<void> {
+  if (gameState.gamePhase !== "complete") {
+    console.warn("Game not complete, not saving to server");
+    return;
+  }
+
+  const deviceInfo = getDeviceInfo();
+  const session: GameSession = {
+    id: crypto.randomUUID(),
+    gameState,
+    userAgent: deviceInfo.userAgent,
+    screenSize: deviceInfo.screenSize,
+    completedAt: new Date(),
+  };
+
+  await saveGameSession(session);
 }

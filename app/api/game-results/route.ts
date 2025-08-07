@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GameSession } from "@/types/game";
-
-// In a real application, you would store this in a database
-// For now, we'll use a simple in-memory store
-const gameResults: GameSession[] = [];
+import {
+  saveGameSession,
+  getGameResults,
+  getColorAnalytics,
+} from "@/lib/database";
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,16 +18,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Store the game session
-    gameResults.push({
-      ...gameSession,
-      completedAt: new Date(),
-    });
+    // Validate that the game is actually complete
+    if (gameSession.gameState.gamePhase !== "complete") {
+      return NextResponse.json(
+        { error: "Can only save completed game sessions" },
+        { status: 400 }
+      );
+    }
+
+    // Save to database
+    const result = saveGameSession(gameSession);
 
     return NextResponse.json({
       success: true,
       message: "Game session saved successfully",
-      sessionId: gameSession.id,
+      sessionId: result.sessionId,
     });
   } catch (error) {
     console.error("Error saving game session:", error);
@@ -41,21 +47,22 @@ export async function GET(request: NextRequest) {
   try {
     const url = new URL(request.url);
     const limit = parseInt(url.searchParams.get("limit") || "100");
+    const includeAnalytics = url.searchParams.get("analytics") === "true";
 
-    // Return recent game results (in a real app, you'd query from database)
-    const recentResults = gameResults.slice(-limit).map((session) => ({
-      id: session.id,
-      completedAt: session.completedAt,
-      finalTop3: session.gameState.finalTop3,
-      roundCount: session.gameState.totalRounds,
-      userAgent: session.userAgent,
-      screenSize: session.screenSize,
-    }));
+    // Get recent game results
+    const recentResults = getGameResults(limit);
 
-    return NextResponse.json({
+    const response: any = {
       results: recentResults,
-      total: gameResults.length,
-    });
+      total: recentResults.length,
+    };
+
+    // Include analytics if requested
+    if (includeAnalytics) {
+      response.analytics = getColorAnalytics();
+    }
+
+    return NextResponse.json(response);
   } catch (error) {
     console.error("Error fetching game results:", error);
     return NextResponse.json(
