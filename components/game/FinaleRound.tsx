@@ -78,7 +78,8 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
                   showHex={true}
                 />
                 <div className="flex-1">
-                  <div className="font-medium">{color.hex}</div>
+                  <div className="font-medium text-lg">{color.name}</div>
+                  <div className="font-mono text-sm">{color.hex}</div>
                   <div className="text-sm text-muted-foreground">
                     HSL({color.hsl.h}°, {color.hsl.s}%, {color.hsl.l}%)
                   </div>

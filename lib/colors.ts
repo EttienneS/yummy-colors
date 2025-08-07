@@ -395,6 +395,7 @@ function createColorFromCurated(
 ): Color {
   return {
     id: crypto.randomUUID(),
+    name: curatedColor.name,
     hex: curatedColor.hex,
     hsl: curatedColor.hsl,
     rgb: curatedColor.rgb,

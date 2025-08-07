@@ -8,6 +8,7 @@ interface ColorCardProps {
   onClick?: () => void;
   className?: string;
   showHex?: boolean;
+  showName?: boolean;
 }
 
 export function ColorCard({
@@ -16,6 +17,7 @@ export function ColorCard({
   onClick,
   className,
   showHex = false,
+  showName = false,
 }: ColorCardProps) {
   const contrastColor = getContrastColor(color);
 
@@ -42,6 +44,20 @@ export function ColorCard({
           }}
         >
           {color.hex}
+        </div>
+      )}
+
+      {showName && (
+        <div
+          className="absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm"
+          style={{
+            color: contrastColor,
+            backgroundColor: `rgba(${
+              contrastColor === "#ffffff" ? "255,255,255" : "0,0,0"
+            }, 0.2)`,
+          }}
+        >
+          {color.name}
         </div>
       )}
 

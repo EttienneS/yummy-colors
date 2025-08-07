@@ -74,7 +74,8 @@ export function ResultsDisplay({
                 <h3 className="text-xl font-semibold mb-1">
                   {getPositionText(index)}
                 </h3>
-                <div className="text-lg font-mono font-bold mb-2">
+                <div className="text-2xl font-bold mb-1">{color.name}</div>
+                <div className="text-lg font-mono text-muted-foreground mb-2">
                   {color.hex}
                 </div>
                 <div className="text-sm text-muted-foreground space-y-1">
