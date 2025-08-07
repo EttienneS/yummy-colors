@@ -14,6 +14,7 @@ export default function ColorGamePage() {
     currentColors,
     selectColor,
     nextRound,
+    previousRound,
     setFinalRanking,
     resetGame,
   } = useGameState();
@@ -31,6 +32,7 @@ export default function ColorGamePage() {
             onColorSelect={handleColorSelect}
             round={gameState.currentRound}
             onNextRound={nextRound}
+            onPreviousRound={previousRound}
             isLastRound={gameState.currentRound === gameState.totalRounds}
           />
         );

@@ -108,6 +108,20 @@ export function useGameState() {
     });
   }, []);
 
+  const previousRound = useCallback(() => {
+    setGameState((prev) => {
+      if (prev.currentRound > 1) {
+        const newState = {
+          ...prev,
+          currentRound: prev.currentRound - 1,
+        };
+        setCurrentColors(generateColorSet(prev.colorsPerRound));
+        return newState;
+      }
+      return prev;
+    });
+  }, []);
+
   const setFinalRanking = useCallback((finalTop3: Color[]) => {
     setGameState((prev) => ({
       ...prev,
@@ -140,6 +154,7 @@ export function useGameState() {
     currentColors,
     selectColor,
     nextRound,
+    previousRound,
     setFinalRanking,
     resetGame,
     getMostSelectedColors,
