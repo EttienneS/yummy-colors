@@ -9,10 +9,12 @@ interface FinaleRoundProps {
 }
 
 export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
-  // Bracket state: 0 = first semi, 1 = second semi, 2 = final
+  // Bracket state: 0 = first semi, 1 = second semi, 2 = final, 3 = third place
   const [bracketStep, setBracketStep] = useState(0);
   const [semiWinners, setSemiWinners] = useState<Color[]>([]);
-  // Removed unused finalWinner state
+  const [semiLosers, setSemiLosers] = useState<Color[]>([]);
+  const [finalWinner, setFinalWinner] = useState<Color | null>(null);
+  const [thirdPlace, setThirdPlace] = useState<Color | null>(null);
 
   // Defensive: only allow with 4 colors
   if (colors.length !== 4) {
@@ -31,23 +33,30 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   // Step 0: Pick between colors[0] vs colors[1]
   // Step 1: Pick between colors[2] vs colors[3]
   // Step 2: Pick between semiWinners[0] vs semiWinners[1]
+  // Step 3: Pick between semi losers for 3rd place
 
-  const handleSemiPick = (winner: Color) => {
+  const handleSemiPick = (winner: Color, matchColors: Color[]) => {
+    const loser = matchColors.find((c) => c.id !== winner.id)!;
     setSemiWinners((prev) => [...prev, winner]);
+    setSemiLosers((prev) => [...prev, loser]);
     setBracketStep((prev) => prev + 1);
   };
 
   const handleFinalPick = (winner: Color) => {
-    // Compose final ranking: winner first, then the other 3 in any order
-    const losers = colors.filter(
-      (c) => c.id !== winner.id && !semiWinners.some((w) => w.id === c.id)
-    );
-    // The other finalist (loser of final)
-    const otherFinalist = semiWinners.find((w) => w.id !== winner.id);
+    setFinalWinner(winner);
+    setBracketStep(3); // Move to third place match
+  };
+
+  const handleThirdPlacePick = (winner: Color) => {
+    setThirdPlace(winner);
+    const fourthPlace = semiLosers.find((l) => l.id !== winner.id)!;
+    const secondPlace = semiWinners.find((w) => w.id !== finalWinner!.id)!;
+
     const finalRanking = [
-      winner,
-      ...(otherFinalist ? [otherFinalist] : []),
-      ...losers,
+      finalWinner!,
+      secondPlace,
+      winner, // third place
+      fourthPlace,
     ];
     onFinalRanking(finalRanking);
   };
@@ -63,7 +72,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
         <div className="flex gap-8 justify-center items-center">
           <div
             key={colors[0].id}
-            onClick={() => handleSemiPick(colors[0])}
+            onClick={() => handleSemiPick(colors[0], [colors[0], colors[1]])}
             className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
@@ -78,7 +87,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
           </div>
           <div
             key={colors[1].id}
-            onClick={() => handleSemiPick(colors[1])}
+            onClick={() => handleSemiPick(colors[1], [colors[0], colors[1]])}
             className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
@@ -101,7 +110,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
         <div className="flex gap-8 justify-center items-center">
           <div
             key={colors[2].id}
-            onClick={() => handleSemiPick(colors[2])}
+            onClick={() => handleSemiPick(colors[2], [colors[2], colors[3]])}
             className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
@@ -116,7 +125,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
           </div>
           <div
             key={colors[3].id}
-            onClick={() => handleSemiPick(colors[3])}
+            onClick={() => handleSemiPick(colors[3], [colors[2], colors[3]])}
             className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
@@ -163,6 +172,44 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               showHex={true}
             />
             <span className="font-bold">{semiWinners[1].name}</span>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (bracketStep === 3 && semiLosers.length === 2) {
+    // Third place playoff
+    content = (
+      <div className="flex flex-col items-center gap-6">
+        <div className="text-center text-lg mb-4 font-semibold z-10 relative">
+          Third Place: Pick the better runner-up
+        </div>
+        <div className="flex gap-8 justify-center items-center">
+          <div
+            key={semiLosers[0].id}
+            onClick={() => handleThirdPlacePick(semiLosers[0])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={semiLosers[0]}
+              className="w-20 h-20 mb-2"
+              showHex={true}
+            />
+            <span className="font-medium">{semiLosers[0].name}</span>
+          </div>
+          <div className="text-4xl font-bold text-muted-foreground mx-4">
+            VS
+          </div>
+          <div
+            key={semiLosers[1].id}
+            onClick={() => handleThirdPlacePick(semiLosers[1])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={semiLosers[1]}
+              className="w-20 h-20 mb-2"
+              showHex={true}
+            />
+            <span className="font-medium">{semiLosers[1].name}</span>
           </div>
         </div>
       </div>
