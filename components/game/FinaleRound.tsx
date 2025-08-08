@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { Color } from "@/types/game";
 import { ColorCard } from "./ColorCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +14,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   const [semiWinners, setSemiWinners] = useState<Color[]>([]);
   const [semiLosers, setSemiLosers] = useState<Color[]>([]);
   const [finalWinner, setFinalWinner] = useState<Color | null>(null);
-  const [thirdPlace, setThirdPlace] = useState<Color | null>(null);
 
   // Track original indices for food images
   const [winnerIndices, setWinnerIndices] = useState<number[]>([]);
@@ -94,7 +92,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
 
     // Add delay for visual feedback
     setTimeout(() => {
-      setThirdPlace(winner);
       const fourthPlace = semiLosers.find((l) => l.id !== winner.id)!;
       const secondPlace = semiWinners.find((w) => w.id !== finalWinner!.id)!;
 

@@ -52,6 +52,15 @@ async function initializeDatabase() {
     await client.query(seedSQL);
     console.log("✅ Colors seeded successfully");
 
+    // Run location migration
+    console.log("🗺️  Running location migration...");
+    const migrationSQL = fs.readFileSync(
+      path.join(__dirname, "..", "database", "migration-add-location.sql"),
+      "utf8"
+    );
+    await client.query(migrationSQL);
+    console.log("✅ Location migration completed");
+
     // Verify the setup
     const colorCount = await client.query("SELECT COUNT(*) FROM colors");
     console.log(`🎨 Total colors in database: ${colorCount.rows[0].count}`);

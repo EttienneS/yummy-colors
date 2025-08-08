@@ -4,6 +4,7 @@ import {
   saveGameSession,
   getGameResults,
   getColorAnalytics,
+  getLocationAnalytics,
 } from "@/lib/database-pg";
 
 export async function POST(request: NextRequest) {
@@ -48,6 +49,8 @@ export async function GET(request: NextRequest) {
     const url = new URL(request.url);
     const limit = parseInt(url.searchParams.get("limit") || "100");
     const includeAnalytics = url.searchParams.get("analytics") === "true";
+    const includeLocationAnalytics =
+      url.searchParams.get("locationAnalytics") === "true";
 
     // Get recent game results
     const recentResults = await getGameResults(limit);
@@ -55,7 +58,8 @@ export async function GET(request: NextRequest) {
     const response: {
       results: typeof recentResults;
       total: number;
-      analytics?: ReturnType<typeof getColorAnalytics>;
+      analytics?: Awaited<ReturnType<typeof getColorAnalytics>>;
+      locationAnalytics?: Awaited<ReturnType<typeof getLocationAnalytics>>;
     } = {
       results: recentResults,
       total: recentResults.length,
@@ -63,7 +67,12 @@ export async function GET(request: NextRequest) {
 
     // Include analytics if requested
     if (includeAnalytics) {
-      response.analytics = getColorAnalytics();
+      response.analytics = await getColorAnalytics();
+    }
+
+    // Include location analytics if requested
+    if (includeLocationAnalytics) {
+      response.locationAnalytics = await getLocationAnalytics();
     }
 
     return NextResponse.json(response);

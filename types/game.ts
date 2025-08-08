@@ -36,6 +36,16 @@ export interface GameState {
   startTime: Date;
 }
 
+export interface LocationData {
+  city?: string;
+  region?: string;
+  country?: string;
+  countryCode?: string;
+  timezone?: string;
+  latitude?: number;
+  longitude?: number;
+}
+
 export interface GameSession {
   id: string;
   gameState: GameState;
@@ -44,5 +54,6 @@ export interface GameSession {
     width: number;
     height: number;
   };
+  location?: LocationData;
   completedAt?: Date;
 }

@@ -4,6 +4,25 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+interface LocationAnalyticsData {
+  locationStats: Array<{
+    country: string;
+    countryCode?: string;
+    region?: string;
+    city?: string;
+    totalSessions: number;
+    completedSessions: number;
+    avgRounds: number;
+    firstSession: Date;
+    latestSession: Date;
+  }>;
+  totalStats: {
+    totalSessionsWithLocation: number;
+    uniqueCountries: number;
+    uniqueCities: number;
+  };
+}
+
 interface AnalyticsData {
   popularFinalColors: Array<{
     hex: string;
@@ -55,6 +74,8 @@ interface GameResult {
 
 export default function AdminPage() {
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
+  const [locationAnalytics, setLocationAnalytics] =
+    useState<LocationAnalyticsData | null>(null);
   const [gameResults, setGameResults] = useState<GameResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -73,6 +94,15 @@ export default function AdminPage() {
       if (analyticsResponse.ok) {
         const analyticsData = await analyticsResponse.json();
         setAnalytics(analyticsData.data);
+      }
+
+      // Fetch location analytics
+      const locationResponse = await fetch(
+        "/api/game-results?locationAnalytics=true"
+      );
+      if (locationResponse.ok) {
+        const locationData = await locationResponse.json();
+        setLocationAnalytics(locationData.locationAnalytics);
       }
 
       // Fetch game results
@@ -208,6 +238,84 @@ export default function AdminPage() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Location Analytics */}
+            {locationAnalytics && (
+              <div className="grid gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Location Analytics</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    {/* Location Summary Stats */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold">
+                          {
+                            locationAnalytics.totalStats
+                              .totalSessionsWithLocation
+                          }
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          Sessions with location
+                        </p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold">
+                          {locationAnalytics.totalStats.uniqueCountries}
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          Countries
+                        </p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold">
+                          {locationAnalytics.totalStats.uniqueCities}
+                        </div>
+                        <p className="text-xs text-muted-foreground">Cities</p>
+                      </div>
+                    </div>
+
+                    {/* Top Locations */}
+                    <div className="space-y-4">
+                      <h4 className="font-semibold">Top Locations</h4>
+                      <div className="space-y-2">
+                        {locationAnalytics.locationStats
+                          .slice(0, 10)
+                          .map((location, index) => (
+                            <div
+                              key={`${location.country}-${location.city}-${index}`}
+                              className="flex items-center justify-between p-2 rounded-lg bg-muted/50"
+                            >
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-sm">
+                                  {location.countryCode}
+                                </span>
+                                <div>
+                                  <div className="font-medium">
+                                    {location.city}, {location.region}
+                                  </div>
+                                  <div className="text-sm text-muted-foreground">
+                                    {location.country}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                <div className="font-semibold">
+                                  {location.totalSessions}
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  {location.completedSessions} completed
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
 
             {/* Color Preferences Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

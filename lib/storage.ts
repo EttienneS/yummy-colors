@@ -1,4 +1,5 @@
 import { GameState, GameSession, RoundResult } from "@/types/game";
+import { getLocationData } from "@/lib/location";
 
 const GAME_STATE_KEY = "yummy-colors-game-state";
 const GAME_SESSIONS_KEY = "yummy-colors-sessions";
@@ -108,11 +109,16 @@ export async function saveCompletedGame(gameState: GameState): Promise<void> {
   }
 
   const deviceInfo = getDeviceInfo();
+
+  // Get location data (city-level only, no consent needed)
+  const locationData = await getLocationData();
+
   const session: GameSession = {
     id: crypto.randomUUID(),
     gameState,
     userAgent: deviceInfo.userAgent,
     screenSize: deviceInfo.screenSize,
+    location: locationData || undefined,
     completedAt: new Date(),
   };
 

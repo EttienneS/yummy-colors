@@ -79,8 +79,9 @@ export async function saveGameSession(
     await client.query(
       `INSERT INTO game_sessions (
         id, user_agent, screen_width, screen_height, start_time, completed_at,
-        current_round, total_rounds, colors_per_round, game_phase
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        current_round, total_rounds, colors_per_round, game_phase,
+        city, region, country, country_code, timezone, latitude, longitude
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
       ON CONFLICT (id) DO UPDATE SET
         user_agent = EXCLUDED.user_agent,
         screen_width = EXCLUDED.screen_width,
@@ -88,6 +89,13 @@ export async function saveGameSession(
         completed_at = EXCLUDED.completed_at,
         current_round = EXCLUDED.current_round,
         game_phase = EXCLUDED.game_phase,
+        city = EXCLUDED.city,
+        region = EXCLUDED.region,
+        country = EXCLUDED.country,
+        country_code = EXCLUDED.country_code,
+        timezone = EXCLUDED.timezone,
+        latitude = EXCLUDED.latitude,
+        longitude = EXCLUDED.longitude,
         updated_at = NOW()`,
       [
         session.id,
@@ -100,6 +108,13 @@ export async function saveGameSession(
         session.gameState.totalRounds,
         session.gameState.colorsPerRound,
         session.gameState.gamePhase,
+        session.location?.city,
+        session.location?.region,
+        session.location?.country,
+        session.location?.countryCode,
+        session.location?.timezone,
+        session.location?.latitude,
+        session.location?.longitude,
       ]
     );
 
@@ -382,6 +397,85 @@ export async function getColorAnalytics() {
     };
   } catch (error) {
     console.error("Error getting color analytics:", error);
+    throw error;
+  }
+}
+
+// Get location analytics
+export async function getLocationAnalytics(): Promise<{
+  locationStats: Array<{
+    country: string;
+    countryCode?: string;
+    region?: string;
+    city?: string;
+    totalSessions: number;
+    completedSessions: number;
+    avgRounds: number;
+    firstSession: Date;
+    latestSession: Date;
+  }>;
+  totalStats: {
+    totalSessionsWithLocation: number;
+    uniqueCountries: number;
+    uniqueCities: number;
+  };
+}> {
+  try {
+    await ensureDbInitialized();
+
+    // Get location analytics - simplified without consent filtering
+    const locationResult = await query(`
+      SELECT 
+        country,
+        country_code,
+        region,
+        city,
+        COUNT(*) as total_sessions,
+        COUNT(CASE WHEN game_phase = 'complete' THEN 1 END) as completed_sessions,
+        AVG(total_rounds) as avg_rounds,
+        MIN(created_at) as first_session,
+        MAX(created_at) as latest_session
+      FROM game_sessions 
+      WHERE city IS NOT NULL
+      GROUP BY country, country_code, region, city
+      ORDER BY total_sessions DESC
+      LIMIT 100
+    `);
+
+    // Get total stats
+    const totalStatsResult = await query(`
+      SELECT 
+        COUNT(CASE WHEN city IS NOT NULL THEN 1 END) as sessions_with_location,
+        COUNT(DISTINCT country) as unique_countries,
+        COUNT(DISTINCT city) as unique_cities
+      FROM game_sessions
+      WHERE created_at >= NOW() - INTERVAL '30 days'
+    `);
+
+    const totalStats = totalStatsResult.rows[0];
+
+    return {
+      locationStats: locationResult.rows.map((row) => ({
+        country: row.country,
+        countryCode: row.country_code,
+        region: row.region,
+        city: row.city,
+        totalSessions: parseInt(row.total_sessions),
+        completedSessions: parseInt(row.completed_sessions),
+        avgRounds: parseFloat(row.avg_rounds) || 0,
+        firstSession: new Date(row.first_session),
+        latestSession: new Date(row.latest_session),
+      })),
+      totalStats: {
+        totalSessionsWithLocation: parseInt(
+          totalStats.sessions_with_location || "0"
+        ),
+        uniqueCountries: parseInt(totalStats.unique_countries || "0"),
+        uniqueCities: parseInt(totalStats.unique_cities || "0"),
+      },
+    };
+  } catch (error) {
+    console.error("Error getting location analytics:", error);
     throw error;
   }
 }
