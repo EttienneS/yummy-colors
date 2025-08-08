@@ -17,7 +17,7 @@ export function GameProgress({
       case "selection":
         return `Round ${currentRound} of ${totalRounds}`;
       case "finale":
-        return "Final ranking";
+        return "Final Bracket";
       case "complete":
         return "Complete!";
       default:
@@ -54,7 +54,7 @@ export function GameProgress({
           )}
           {gamePhase === "finale" && (
             <p className="text-sm text-muted-foreground">
-              Rank your top 3 most appetizing colors
+              Choose your favorites in a bracket showdown
             </p>
           )}
         </div>

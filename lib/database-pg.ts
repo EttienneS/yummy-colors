@@ -154,9 +154,9 @@ export async function saveGameSession(
       }
     }
 
-    // Save final rankings
+    // Save final rankings (only top 3)
     if (session.gameState.finalTop3) {
-      for (let i = 0; i < session.gameState.finalTop3.length; i++) {
+      for (let i = 0; i < 3 && i < session.gameState.finalTop3.length; i++) {
         await client.query(
           `INSERT INTO final_rankings (session_id, color_id, rank)
            VALUES ($1, (SELECT id FROM colors WHERE hex = $2), $3)

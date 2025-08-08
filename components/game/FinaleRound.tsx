@@ -1,100 +1,185 @@
 import React, { useState } from "react";
 import { Color } from "@/types/game";
 import { ColorCard } from "./ColorCard";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronUp, ChevronDown } from "lucide-react";
 
 interface FinaleRoundProps {
   colors: Color[];
-  onFinalRanking: (top3: Color[]) => void;
+  onFinalRanking: (finalRanking: Color[]) => void;
 }
 
 export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
-  const [rankedColors, setRankedColors] = useState<Color[]>([...colors]);
+  // Bracket state: 0 = first semi, 1 = second semi, 2 = final
+  const [bracketStep, setBracketStep] = useState(0);
+  const [semiWinners, setSemiWinners] = useState<Color[]>([]);
+  // Removed unused finalWinner state
 
-  const moveColor = (fromIndex: number, direction: "up" | "down") => {
-    const newRanked = [...rankedColors];
-    const toIndex = direction === "up" ? fromIndex - 1 : fromIndex + 1;
+  // Defensive: only allow with 4 colors
+  if (colors.length !== 4) {
+    return (
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle className="text-center">Finale Error</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-center">Finale requires exactly 4 colors.</p>
+        </CardContent>
+      </Card>
+    );
+  }
 
-    if (toIndex >= 0 && toIndex < newRanked.length) {
-      [newRanked[fromIndex], newRanked[toIndex]] = [
-        newRanked[toIndex],
-        newRanked[fromIndex],
-      ];
-      setRankedColors(newRanked);
-    }
+  // Step 0: Pick between colors[0] vs colors[1]
+  // Step 1: Pick between colors[2] vs colors[3]
+  // Step 2: Pick between semiWinners[0] vs semiWinners[1]
+
+  const handleSemiPick = (winner: Color) => {
+    setSemiWinners((prev) => [...prev, winner]);
+    setBracketStep((prev) => prev + 1);
   };
 
-  const handleFinalize = () => {
-    onFinalRanking(rankedColors.slice(0, 3));
+  const handleFinalPick = (winner: Color) => {
+    // Compose final ranking: winner first, then the other 3 in any order
+    const losers = colors.filter(
+      (c) => c.id !== winner.id && !semiWinners.some((w) => w.id === c.id)
+    );
+    // The other finalist (loser of final)
+    const otherFinalist = semiWinners.find((w) => w.id !== winner.id);
+    const finalRanking = [
+      winner,
+      ...(otherFinalist ? [otherFinalist] : []),
+      ...losers,
+    ];
+    onFinalRanking(finalRanking);
   };
+
+  let content = null;
+  if (bracketStep === 0) {
+    // First semi-final
+    content = (
+      <div className="flex flex-col items-center gap-6">
+        <div className="text-center text-lg mb-4 font-semibold z-10 relative">
+          Semi-final 1: Pick your favorite
+        </div>
+        <div className="flex gap-8 justify-center items-center">
+          <div
+            key={colors[0].id}
+            onClick={() => handleSemiPick(colors[0])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={colors[0]}
+              className="w-20 h-20 mb-2"
+              showHex={true}
+            />
+            <span className="font-medium">{colors[0].name}</span>
+          </div>
+          <div className="text-4xl font-bold text-muted-foreground mx-4">
+            VS
+          </div>
+          <div
+            key={colors[1].id}
+            onClick={() => handleSemiPick(colors[1])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={colors[1]}
+              className="w-20 h-20 mb-2"
+              showHex={true}
+            />
+            <span className="font-medium">{colors[1].name}</span>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (bracketStep === 1) {
+    // Second semi-final
+    content = (
+      <div className="flex flex-col items-center gap-6">
+        <div className="text-center text-lg mb-4 font-semibold z-10 relative">
+          Semi-final 2: Pick your favorite
+        </div>
+        <div className="flex gap-8 justify-center items-center">
+          <div
+            key={colors[2].id}
+            onClick={() => handleSemiPick(colors[2])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={colors[2]}
+              className="w-20 h-20 mb-2"
+              showHex={true}
+            />
+            <span className="font-medium">{colors[2].name}</span>
+          </div>
+          <div className="text-4xl font-bold text-muted-foreground mx-4">
+            VS
+          </div>
+          <div
+            key={colors[3].id}
+            onClick={() => handleSemiPick(colors[3])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={colors[3]}
+              className="w-20 h-20 mb-2"
+              showHex={true}
+            />
+            <span className="font-medium">{colors[3].name}</span>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (bracketStep === 2 && semiWinners.length === 2) {
+    // Final
+    content = (
+      <div className="flex flex-col items-center gap-6">
+        <div className="text-center text-lg mb-4 font-semibold z-10 relative">
+          Final: Pick the ultimate winner
+        </div>
+        <div className="flex gap-8 justify-center items-center">
+          <div
+            key={semiWinners[0].id}
+            onClick={() => handleFinalPick(semiWinners[0])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={semiWinners[0]}
+              className="w-24 h-24 mb-2"
+              showHex={true}
+            />
+            <span className="font-bold">{semiWinners[0].name}</span>
+          </div>
+          <div className="text-4xl font-bold text-muted-foreground mx-4">
+            VS
+          </div>
+          <div
+            key={semiWinners[1].id}
+            onClick={() => handleFinalPick(semiWinners[1])}
+            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+          >
+            <ColorCard
+              color={semiWinners[1]}
+              className="w-24 h-24 mb-2"
+              showHex={true}
+            />
+            <span className="font-bold">{semiWinners[1].name}</span>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    content = <div className="text-center">Processing...</div>;
+  }
 
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-center">Final Ranking</CardTitle>
+        <CardTitle className="text-center">Final Bracket</CardTitle>
         <p className="text-center text-muted-foreground">
-          Arrange your colors in order of most to least appetizing
-          <br />
-          <span className="text-sm">The top 3 will be your final results</span>
+          Choose your favorites in a bracket showdown!
         </p>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4 mb-6">
-          {rankedColors.map((color, index) => (
-            <div
-              key={color.id}
-              className="flex items-center gap-4 p-4 border rounded-lg bg-card"
-            >
-              <div className="flex flex-col gap-1">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => moveColor(index, "up")}
-                  disabled={index === 0}
-                  className="h-8 w-8"
-                >
-                  <ChevronUp className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => moveColor(index, "down")}
-                  disabled={index === rankedColors.length - 1}
-                  className="h-8 w-8"
-                >
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-4 flex-1">
-                <div className="text-2xl font-bold text-muted-foreground min-w-[2rem]">
-                  #{index + 1}
-                </div>
-                <ColorCard
-                  color={color}
-                  className="w-16 h-16 min-w-16 min-h-16"
-                  showHex={true}
-                />
-                <div className="flex-1">
-                  <div className="font-medium text-lg">{color.name}</div>
-                  <div className="font-mono text-sm">{color.hex}</div>
-                  <div className="text-sm text-muted-foreground">
-                    HSL({color.hsl.h}°, {color.hsl.s}%, {color.hsl.l}%)
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Button onClick={handleFinalize} size="lg" className="px-8">
-            Finalize Results
-          </Button>
-        </div>
-      </CardContent>
+      <CardContent>{content}</CardContent>
     </Card>
   );
 }

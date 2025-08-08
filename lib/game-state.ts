@@ -117,10 +117,10 @@ export function useGameState() {
         setCurrentColors(prev.allRounds[roundIndex] || []);
         return newState;
       } else {
-        // Move directly to finale phase with top 5 selected colors
+        // Move directly to finale phase with top 4 selected colors for bracket
         const topColors = prev.selectedColors
           .sort((a, b) => b.selectionCount - a.selectionCount)
-          .slice(0, 5);
+          .slice(0, 4);
 
         return {
           ...prev,
@@ -146,10 +146,11 @@ export function useGameState() {
     });
   }, []);
 
-  const setFinalRanking = useCallback((finalTop3: Color[]) => {
+  // For bracket, we expect a finalTop3 or finalTop1 depending on UI
+  const setFinalRanking = useCallback((finalRanking: Color[]) => {
     setGameState((prev) => ({
       ...prev,
-      finalTop3,
+      finalTop3: finalRanking,
       gamePhase: "complete",
     }));
   }, []);
