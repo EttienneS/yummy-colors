@@ -3,7 +3,7 @@ import { getColorAnalytics } from "@/lib/database-pg";
 
 export async function GET() {
   try {
-    const analytics = getColorAnalytics();
+    const analytics = await getColorAnalytics();
 
     return NextResponse.json({
       success: true,
