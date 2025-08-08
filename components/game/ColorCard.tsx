@@ -7,7 +7,6 @@ interface ColorCardProps {
   isSelected?: boolean;
   onClick?: () => void;
   className?: string;
-  showHex?: boolean;
   showName?: boolean;
   foodImageIndex?: number; // New prop to specify which food image to use
 }
@@ -26,7 +25,6 @@ export function ColorCard({
   isSelected = false,
   onClick,
   className,
-  showHex = false,
   showName = false,
   foodImageIndex = 0,
 }: ColorCardProps) {
@@ -52,35 +50,22 @@ export function ColorCard({
         }}
       />
 
-      {/* Food image on white background */}
-      <div className="absolute inset-2 flex items-center justify-center bg-transparent rounded-lg">
-        <Image
-          src={foodImage}
-          alt="Food item"
-          width={80}
-          height={80}
-          className="w-3/4 h-3/4 object-contain"
-        />
-        {/* Subtle color tint overlay */}
-        <div 
-          className="absolute inset-0 opacity-20 pointer-events-none rounded-lg"
-          style={{ backgroundColor: color.hex }}
-        />
-      </div>
-      {showHex && (
-        <div
-          className="absolute bottom-2 left-2 text-xs font-mono font-bold px-2 py-1 rounded backdrop-blur-sm"
-          style={{
-            color: contrastColor,
-            backgroundColor: `rgba(${
-              contrastColor === "#ffffff" ? "255,255,255" : "0,0,0"
-            }, 0.2)`,
-          }}
-        >
-          {color.hex}
+      {/* Food image on background */}
+      <div className="absolute inset-2 bg-transparent rounded-lg">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image
+            src={foodImage}
+            alt="Food item"
+            width={80}
+            height={80}
+            className="w-3/4 h-3/4 object-contain"
+          />
+          <div
+            className="absolute inset-0 rounded-lg mix-blend-multiply pointer-events-none"
+            style={{ backgroundColor: color.hex }}
+          />
         </div>
-      )}
-
+      </div>
       {showName && (
         <div
           className="absolute top-2 left-2 text-xs font-bold px-2 py-1 rounded backdrop-blur-sm"

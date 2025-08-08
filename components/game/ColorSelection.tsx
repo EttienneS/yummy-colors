@@ -42,7 +42,7 @@ export function ColorSelection({
       if (onNextRound) {
         setTimeout(() => {
           onNextRound();
-        }, 500); // Additional delay to show selection feedback
+        }, 250); // Additional delay to show selection feedback
       }
     }, 300);
   };

@@ -89,7 +89,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={colors[0]}
               className="w-20 h-20 mb-2"
-              showHex={true}
               foodImageIndex={0}
             />
             <span className="font-medium">{colors[0].name}</span>
@@ -105,7 +104,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={colors[1]}
               className="w-20 h-20 mb-2"
-              showHex={true}
               foodImageIndex={1}
             />
             <span className="font-medium">{colors[1].name}</span>
@@ -129,7 +127,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={colors[2]}
               className="w-20 h-20 mb-2"
-              showHex={true}
               foodImageIndex={2}
             />
             <span className="font-medium">{colors[2].name}</span>
@@ -145,7 +142,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={colors[3]}
               className="w-20 h-20 mb-2"
-              showHex={true}
               foodImageIndex={3}
             />
             <span className="font-medium">{colors[3].name}</span>
@@ -169,7 +165,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={semiWinners[0]}
               className="w-24 h-24 mb-2"
-              showHex={true}
               foodImageIndex={winnerIndices[0] || 0}
             />
             <span className="font-bold">{semiWinners[0].name}</span>
@@ -185,7 +180,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={semiWinners[1]}
               className="w-24 h-24 mb-2"
-              showHex={true}
               foodImageIndex={winnerIndices[1] || 1}
             />
             <span className="font-bold">{semiWinners[1].name}</span>
@@ -209,7 +203,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={semiLosers[0]}
               className="w-20 h-20 mb-2"
-              showHex={true}
               foodImageIndex={loserIndices[0] || 0}
             />
             <span className="font-medium">{semiLosers[0].name}</span>
@@ -225,7 +218,6 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             <ColorCard
               color={semiLosers[1]}
               className="w-20 h-20 mb-2"
-              showHex={true}
               foodImageIndex={loserIndices[1] || 1}
             />
             <span className="font-medium">{semiLosers[1].name}</span>
