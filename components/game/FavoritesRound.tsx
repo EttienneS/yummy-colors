@@ -66,7 +66,6 @@ export function FavoritesRound({
                 isSelected={selectedFavorites.some((c) => c.id === color.id)}
                 onClick={() => handleColorClick(color)}
                 className="w-full"
-                showHex={true}
               />
               <div className="text-center mt-2 text-xs text-muted-foreground">
                 Selected {color.selectionCount} time

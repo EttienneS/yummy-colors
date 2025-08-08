@@ -66,7 +66,6 @@ export function ResultsDisplay({
               <ColorCard
                 color={color}
                 className="w-20 h-20 min-w-20 min-h-20"
-                showHex={true}
               />
 
               <div className="flex-1">
