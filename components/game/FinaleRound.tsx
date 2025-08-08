@@ -20,7 +20,8 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   const [winnerIndices, setWinnerIndices] = useState<number[]>([]);
   const [loserIndices, setLoserIndices] = useState<number[]>([]);
 
-  // Defensive: only allow with 4 colors
+  // Track current selection for visual feedback
+  const [selectedColor, setSelectedColor] = useState<Color | null>(null); // Defensive: only allow with 4 colors
   if (colors.length !== 4) {
     return (
       <Card className="w-full">
@@ -40,36 +41,74 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   // Step 3: Pick between semi losers for 3rd place
 
   const handleSemiPick = (winner: Color, matchColors: Color[]) => {
-    const loser = matchColors.find((c) => c.id !== winner.id)!;
-    setSemiWinners((prev) => [...prev, winner]);
-    setSemiLosers((prev) => [...prev, loser]);
+    if (selectedColor?.id === winner.id) {
+      return; // Already selected
+    }
 
-    // Track indices for food images
-    const winnerIndex = colors.findIndex((c) => c.id === winner.id);
-    const loserIndex = colors.findIndex((c) => c.id === loser.id);
-    setWinnerIndices((prev) => [...prev, winnerIndex]);
-    setLoserIndices((prev) => [...prev, loserIndex]);
+    setSelectedColor(winner);
 
-    setBracketStep((prev) => prev + 1);
+    // Add delay for visual feedback
+    setTimeout(() => {
+      const loser = matchColors.find((c) => c.id !== winner.id)!;
+      setSemiWinners((prev) => [...prev, winner]);
+      setSemiLosers((prev) => [...prev, loser]);
+
+      // Track indices for food images
+      const winnerIndex = colors.findIndex((c) => c.id === winner.id);
+      const loserIndex = colors.findIndex((c) => c.id === loser.id);
+      setWinnerIndices((prev) => [...prev, winnerIndex]);
+      setLoserIndices((prev) => [...prev, loserIndex]);
+
+      setTimeout(() => {
+        setBracketStep((prev) => prev + 1);
+        setSelectedColor(null); // Reset selection for next round
+      }, 250);
+    }, 300);
   };
 
   const handleFinalPick = (winner: Color) => {
-    setFinalWinner(winner);
-    setBracketStep(3); // Move to third place match
+    if (selectedColor?.id === winner.id) {
+      return; // Already selected
+    }
+
+    setSelectedColor(winner);
+
+    // Add delay for visual feedback
+    setTimeout(() => {
+      setFinalWinner(winner);
+
+      setTimeout(() => {
+        setBracketStep(3); // Move to third place match
+        setSelectedColor(null); // Reset selection for next round
+      }, 250);
+    }, 300);
   };
 
   const handleThirdPlacePick = (winner: Color) => {
-    setThirdPlace(winner);
-    const fourthPlace = semiLosers.find((l) => l.id !== winner.id)!;
-    const secondPlace = semiWinners.find((w) => w.id !== finalWinner!.id)!;
+    if (selectedColor?.id === winner.id) {
+      return; // Already selected
+    }
 
-    const finalRanking = [
-      finalWinner!,
-      secondPlace,
-      winner, // third place
-      fourthPlace,
-    ];
-    onFinalRanking(finalRanking);
+    setSelectedColor(winner);
+
+    // Add delay for visual feedback
+    setTimeout(() => {
+      setThirdPlace(winner);
+      const fourthPlace = semiLosers.find((l) => l.id !== winner.id)!;
+      const secondPlace = semiWinners.find((w) => w.id !== finalWinner!.id)!;
+
+      const finalRanking = [
+        finalWinner!,
+        secondPlace,
+        winner, // third place
+        fourthPlace,
+      ];
+
+      setTimeout(() => {
+        onFinalRanking(finalRanking);
+        setSelectedColor(null); // Reset selection
+      }, 250);
+    }, 300);
   };
 
   let content = null;
