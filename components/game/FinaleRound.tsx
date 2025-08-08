@@ -120,36 +120,28 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
         <div className="text-center text-lg mb-4 font-semibold z-10 relative">
           Semi-final 1: Pick your favorite
         </div>
-        <div className="flex gap-8 justify-center items-center">
+        <div className="flex gap-4 justify-center items-center">
           <div
             key={colors[0].id}
             onClick={() => handleSemiPick(colors[0], [colors[0], colors[1]])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={colors[0]}
-              className="w-20 h-20 mb-2"
+              className="w-20 h-20 mb-1"
               foodImageIndex={0}
             />
             <span className="font-medium">{colors[0].name}</span>
           </div>
-          <div className="mx-4 flex items-center justify-center">
-            <Image
-              src="/vs.png"
-              alt="VS"
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </div>
+
           <div
             key={colors[1].id}
             onClick={() => handleSemiPick(colors[1], [colors[0], colors[1]])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={colors[1]}
-              className="w-20 h-20 mb-2"
+              className="w-15 h-15 mb-2"
               foodImageIndex={1}
             />
             <span className="font-medium">{colors[1].name}</span>
@@ -164,36 +156,28 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
         <div className="text-center text-lg mb-4 font-semibold z-10 relative">
           Semi-final 2: Pick your favorite
         </div>
-        <div className="flex gap-8 justify-center items-center">
+        <div className="flex gap-4 justify-center items-center">
           <div
             key={colors[2].id}
             onClick={() => handleSemiPick(colors[2], [colors[2], colors[3]])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={colors[2]}
-              className="w-20 h-20 mb-2"
+              className="w-20 h-20 mb-1"
               foodImageIndex={2}
             />
             <span className="font-medium">{colors[2].name}</span>
           </div>
-          <div className="mx-4 flex items-center justify-center">
-            <Image
-              src="/vs.png"
-              alt="VS"
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </div>
+
           <div
             key={colors[3].id}
             onClick={() => handleSemiPick(colors[3], [colors[2], colors[3]])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={colors[3]}
-              className="w-20 h-20 mb-2"
+              className="w-20 h-20 mb-1"
               foodImageIndex={3}
             />
             <span className="font-medium">{colors[3].name}</span>
@@ -208,36 +192,28 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
         <div className="text-center text-lg mb-4 font-semibold z-10 relative">
           Final: Pick the ultimate winner
         </div>
-        <div className="flex gap-8 justify-center items-center">
+        <div className="flex gap-4 justify-center items-center">
           <div
             key={semiWinners[0].id}
             onClick={() => handleFinalPick(semiWinners[0])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={semiWinners[0]}
-              className="w-24 h-24 mb-2"
+              className="w-24 h-24 mb-1"
               foodImageIndex={winnerIndices[0] || 0}
             />
             <span className="font-bold">{semiWinners[0].name}</span>
           </div>
-          <div className="mx-4 flex items-center justify-center">
-            <Image
-              src="/vs.png"
-              alt="VS"
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </div>
+
           <div
             key={semiWinners[1].id}
             onClick={() => handleFinalPick(semiWinners[1])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={semiWinners[1]}
-              className="w-24 h-24 mb-2"
+              className="w-24 h-24 mb-1"
               foodImageIndex={winnerIndices[1] || 1}
             />
             <span className="font-bold">{semiWinners[1].name}</span>
@@ -252,36 +228,28 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
         <div className="text-center text-lg mb-4 font-semibold z-10 relative">
           Third Place: Pick the better runner-up
         </div>
-        <div className="flex gap-8 justify-center items-center">
+        <div className="flex gap-4 justify-center items-center">
           <div
             key={semiLosers[0].id}
             onClick={() => handleThirdPlacePick(semiLosers[0])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={semiLosers[0]}
-              className="w-20 h-20 mb-2"
+              className="w-20 h-20 mb-1"
               foodImageIndex={loserIndices[0] || 0}
             />
             <span className="font-medium">{semiLosers[0].name}</span>
           </div>
-          <div className="mx-4 flex items-center justify-center">
-            <Image
-              src="/vs.png"
-              alt="VS"
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </div>
+
           <div
             key={semiLosers[1].id}
             onClick={() => handleThirdPlacePick(semiLosers[1])}
-            className="flex flex-col items-center p-4 cursor-pointer hover:bg-muted rounded-lg transition-colors"
+            className="flex flex-col items-center p-2 cursor-pointer hover:bg-muted rounded-lg transition-colors"
           >
             <ColorCard
               color={semiLosers[1]}
-              className="w-20 h-20 mb-2"
+              className="w-20 h-20 mb-1"
               foodImageIndex={loserIndices[1] || 1}
             />
             <span className="font-medium">{semiLosers[1].name}</span>
