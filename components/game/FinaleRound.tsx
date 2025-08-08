@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import { Color } from "@/types/game";
 import { ColorCard } from "./ColorCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -132,8 +133,14 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             />
             <span className="font-medium">{colors[0].name}</span>
           </div>
-          <div className="text-4xl font-bold text-muted-foreground mx-4">
-            VS
+          <div className="mx-4 flex items-center justify-center">
+            <Image
+              src="/vs.png"
+              alt="VS"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
           </div>
           <div
             key={colors[1].id}
@@ -170,8 +177,14 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             />
             <span className="font-medium">{colors[2].name}</span>
           </div>
-          <div className="text-4xl font-bold text-muted-foreground mx-4">
-            VS
+          <div className="mx-4 flex items-center justify-center">
+            <Image
+              src="/vs.png"
+              alt="VS"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
           </div>
           <div
             key={colors[3].id}
@@ -208,8 +221,14 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             />
             <span className="font-bold">{semiWinners[0].name}</span>
           </div>
-          <div className="text-4xl font-bold text-muted-foreground mx-4">
-            VS
+          <div className="mx-4 flex items-center justify-center">
+            <Image
+              src="/vs.png"
+              alt="VS"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
           </div>
           <div
             key={semiWinners[1].id}
@@ -246,8 +265,14 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
             />
             <span className="font-medium">{semiLosers[0].name}</span>
           </div>
-          <div className="text-4xl font-bold text-muted-foreground mx-4">
-            VS
+          <div className="mx-4 flex items-center justify-center">
+            <Image
+              src="/vs.png"
+              alt="VS"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
           </div>
           <div
             key={semiLosers[1].id}
