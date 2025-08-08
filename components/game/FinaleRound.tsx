@@ -16,6 +16,10 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
   const [finalWinner, setFinalWinner] = useState<Color | null>(null);
   const [thirdPlace, setThirdPlace] = useState<Color | null>(null);
 
+  // Track original indices for food images
+  const [winnerIndices, setWinnerIndices] = useState<number[]>([]);
+  const [loserIndices, setLoserIndices] = useState<number[]>([]);
+
   // Defensive: only allow with 4 colors
   if (colors.length !== 4) {
     return (
@@ -39,6 +43,13 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
     const loser = matchColors.find((c) => c.id !== winner.id)!;
     setSemiWinners((prev) => [...prev, winner]);
     setSemiLosers((prev) => [...prev, loser]);
+
+    // Track indices for food images
+    const winnerIndex = colors.findIndex((c) => c.id === winner.id);
+    const loserIndex = colors.findIndex((c) => c.id === loser.id);
+    setWinnerIndices((prev) => [...prev, winnerIndex]);
+    setLoserIndices((prev) => [...prev, loserIndex]);
+
     setBracketStep((prev) => prev + 1);
   };
 
@@ -79,6 +90,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={colors[0]}
               className="w-20 h-20 mb-2"
               showHex={true}
+              foodImageIndex={0}
             />
             <span className="font-medium">{colors[0].name}</span>
           </div>
@@ -94,6 +106,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={colors[1]}
               className="w-20 h-20 mb-2"
               showHex={true}
+              foodImageIndex={1}
             />
             <span className="font-medium">{colors[1].name}</span>
           </div>
@@ -117,6 +130,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={colors[2]}
               className="w-20 h-20 mb-2"
               showHex={true}
+              foodImageIndex={2}
             />
             <span className="font-medium">{colors[2].name}</span>
           </div>
@@ -132,6 +146,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={colors[3]}
               className="w-20 h-20 mb-2"
               showHex={true}
+              foodImageIndex={3}
             />
             <span className="font-medium">{colors[3].name}</span>
           </div>
@@ -155,6 +170,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={semiWinners[0]}
               className="w-24 h-24 mb-2"
               showHex={true}
+              foodImageIndex={winnerIndices[0] || 0}
             />
             <span className="font-bold">{semiWinners[0].name}</span>
           </div>
@@ -170,6 +186,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={semiWinners[1]}
               className="w-24 h-24 mb-2"
               showHex={true}
+              foodImageIndex={winnerIndices[1] || 1}
             />
             <span className="font-bold">{semiWinners[1].name}</span>
           </div>
@@ -193,6 +210,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={semiLosers[0]}
               className="w-20 h-20 mb-2"
               showHex={true}
+              foodImageIndex={loserIndices[0] || 0}
             />
             <span className="font-medium">{semiLosers[0].name}</span>
           </div>
@@ -208,6 +226,7 @@ export function FinaleRound({ colors, onFinalRanking }: FinaleRoundProps) {
               color={semiLosers[1]}
               className="w-20 h-20 mb-2"
               showHex={true}
+              foodImageIndex={loserIndices[1] || 1}
             />
             <span className="font-medium">{semiLosers[1].name}</span>
           </div>
