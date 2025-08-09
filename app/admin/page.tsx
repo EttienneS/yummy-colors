@@ -340,6 +340,21 @@ export default function AdminPage() {
                   <div className="space-y-2">
                     {analytics.colorNamePreferences.map((pref, index) => (
                       <div key={pref.name} className="flex items-center gap-2">
+                        {/* Color square: try to find the color hex from popularFinalColors, fallback to gray if not found */}
+                        <div
+                          className="w-4 h-4 rounded border mr-2"
+                          style={{
+                            backgroundColor:
+                              analytics.popularFinalColors.find(
+                                (c) => c.name === pref.name
+                              )?.hex || "#e5e7eb",
+                          }}
+                          title={
+                            analytics.popularFinalColors.find(
+                              (c) => c.name === pref.name
+                            )?.hex || "Unknown"
+                          }
+                        />
                         <div className="text-sm font-medium min-w-0 flex-1">
                           #{index + 1} {pref.name}
                         </div>

@@ -49,7 +49,7 @@ export function GameProgress({
 
           {gamePhase === "selection" && (
             <p className="text-sm text-muted-foreground">
-              Pick the most appetizing color from each set
+              Pick the most yummy color from each set
             </p>
           )}
           {gamePhase === "finale" && (

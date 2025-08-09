@@ -63,7 +63,7 @@ export function ColorSelection({
             </Button>
           )}
           <CardTitle className="text-center flex-1">
-            Round {round}: Pick the most appetizing color
+            Round {round}: Pick the most delicious looking color
           </CardTitle>
           <div className="w-20" /> {/* Spacer for layout balance */}
         </div>

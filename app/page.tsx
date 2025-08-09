@@ -61,12 +61,11 @@ export default function ColorGamePage() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2">🍽️ Yummy Colors</h1>
-          <p className="text-lg text-muted-foreground">
-            Discover which colors make you feel most hungry!
-          </p>
+          <h1 className="text-4xl font-bold mb-2">🍽️ Yummy Colors 🍽️</h1>
         </div>
 
+        {renderCurrentPhase()}
+        <div className="m-2" />
         {gameState.gamePhase !== "complete" && (
           <GameProgress
             currentRound={gameState.currentRound}
@@ -75,7 +74,14 @@ export default function ColorGamePage() {
           />
         )}
 
-        {renderCurrentPhase()}
+        <div className="text-center mb-8">
+          <p className="text-lg text-muted-foreground">Hi! My name is Emily!</p>
+          <p className="text-lg text-muted-foreground">
+            I&apos;m doing an experiment for school to see if I can find the
+            most delicious color. Please help me by selecting your favorite
+            colors in each round!
+          </p>
+        </div>
       </div>
     </div>
   );
