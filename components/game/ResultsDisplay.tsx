@@ -83,9 +83,6 @@ export function ResultsDisplay({
                   <div>
                     RGB: {color.rgb.r}, {color.rgb.g}, {color.rgb.b}
                   </div>
-                  {color.selectionCount > 0 && (
-                    <div>Selected {color.selectionCount} times</div>
-                  )}
                 </div>
               </div>
             </div>
