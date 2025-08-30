@@ -3,6 +3,22 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  ScatterChart,
+  Scatter,
+  Area,
+  AreaChart,
+} from "recharts";
 
 interface AnalyticsData {
   popularFinalColors: Array<{
@@ -176,38 +192,6 @@ export default function AdminPage() {
                 </CardContent>
               </Card>
             </div>
-
-            {/* Popular Colors */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Most Popular Final Colors</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {analytics.popularFinalColors
-                    .slice(0, 10)
-                    .map((color, index) => (
-                      <div key={color.hex} className="text-center">
-                        <div
-                          className="w-full aspect-square rounded-lg mb-2 border"
-                          style={{ backgroundColor: color.hex }}
-                        />
-                        <div className="text-sm font-mono">{color.hex}</div>
-                        <div className="text-xs font-medium">{color.name}</div>
-                        <div className="text-xs text-muted-foreground capitalize">
-                          {color.category}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          #{index + 1} • {color.frequency} selections
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          Avg rank: {color.avgRank.toFixed(1)}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              </CardContent>
-            </Card>
 
             {/* Color Preferences Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -405,6 +389,386 @@ export default function AdminPage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+        )}
+
+        {/* New Charts Section */}
+        {analytics && (
+          <div className="grid gap-6 mb-8">
+            {/* Most Popular Colors */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Most Popular Colors</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={analytics.popularFinalColors.slice(0, 10)}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="name"
+                      angle={-45}
+                      textAnchor="end"
+                      height={80}
+                      interval={0}
+                    />
+                    <YAxis />
+                    <Tooltip
+                      formatter={(value) => [value, "Frequency"]}
+                      labelFormatter={(label) => `Color: ${label}`}
+                    />
+                    <Bar dataKey="frequency" fill="#8884d8" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* Least Popular Colors */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Least Popular Colors</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart
+                    data={[...analytics.popularFinalColors]
+                      .sort((a, b) => a.frequency - b.frequency)
+                      .slice(0, 10)}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis
+                      dataKey="name"
+                      angle={-45}
+                      textAnchor="end"
+                      height={80}
+                      interval={0}
+                    />
+                    <YAxis />
+                    <Tooltip
+                      formatter={(value) => [value, "Frequency"]}
+                      labelFormatter={(label) => `Color: ${label}`}
+                    />
+                    <Bar dataKey="frequency" fill="#82ca9d" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* Hue vs Saturation Scatter Plot */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Hue vs Saturation Distribution</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={400}>
+                  <ScatterChart data={analytics.popularFinalColors}>
+                    <CartesianGrid />
+                    <XAxis
+                      type="number"
+                      dataKey="avgHue"
+                      name="Hue"
+                      domain={[0, 360]}
+                      label={{
+                        value: "Hue (°)",
+                        position: "insideBottom",
+                        offset: -5,
+                      }}
+                    />
+                    <YAxis
+                      type="number"
+                      dataKey="avgSaturation"
+                      name="Saturation"
+                      domain={[0, 100]}
+                      label={{
+                        value: "Saturation (%)",
+                        angle: -90,
+                        position: "insideLeft",
+                      }}
+                    />
+                    <Tooltip
+                      cursor={{ strokeDasharray: "3 3" }}
+                      formatter={(value, name) => [value, name]}
+                      labelFormatter={() => ""}
+                      content={({ payload }) => {
+                        if (payload && payload[0]) {
+                          const data = payload[0].payload;
+                          return (
+                            <div className="bg-white p-2 border rounded shadow">
+                              <div className="flex items-center gap-2 mb-1">
+                                <div
+                                  className="w-4 h-4 rounded border"
+                                  style={{ backgroundColor: data.hex }}
+                                />
+                                <span className="font-medium">{data.name}</span>
+                              </div>
+                              <div>Hue: {data.avgHue.toFixed(1)}°</div>
+                              <div>
+                                Saturation: {data.avgSaturation.toFixed(1)}%
+                              </div>
+                              <div>Frequency: {data.frequency}</div>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }}
+                    />
+                    <Scatter
+                      dataKey="frequency"
+                      fill="#ff7300"
+                      fillOpacity={0.6}
+                    />
+                  </ScatterChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* Category Distribution Pie Chart */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Color Category Distribution</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <PieChart>
+                    <Pie
+                      data={analytics.categoryPreferences}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={({ name, percent }) =>
+                        `${name} ${percent ? (percent * 100).toFixed(0) : 0}%`
+                      }
+                      outerRadius={80}
+                      fill="#8884d8"
+                      dataKey="count"
+                    >
+                      {analytics.categoryPreferences.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={`hsl(${index * 45}, 70%, 50%)`}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* HSL Distribution Area Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Hue Distribution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <AreaChart data={analytics.huePreferences}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="hue_range" />
+                      <YAxis />
+                      <Tooltip
+                        formatter={(value) => [value, "Frequency"]}
+                        labelFormatter={(label) =>
+                          `${label}°-${parseInt(label) + 30}°`
+                        }
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="frequency"
+                        stroke="#ff7300"
+                        fill="#ff7300"
+                        fillOpacity={0.6}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Saturation Distribution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <AreaChart data={analytics.saturationPreferences}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="saturation_range" />
+                      <YAxis />
+                      <Tooltip
+                        formatter={(value) => [value, "Frequency"]}
+                        labelFormatter={(label) =>
+                          `${label}%-${parseInt(label) + 10}%`
+                        }
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="frequency"
+                        stroke="#82ca9d"
+                        fill="#82ca9d"
+                        fillOpacity={0.6}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Lightness Distribution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <AreaChart data={analytics.lightnessPreferences}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="lightness_range" />
+                      <YAxis />
+                      <Tooltip
+                        formatter={(value) => [value, "Frequency"]}
+                        labelFormatter={(label) =>
+                          `${label}%-${parseInt(label) + 10}%`
+                        }
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="frequency"
+                        stroke="#8884d8"
+                        fill="#8884d8"
+                        fillOpacity={0.6}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        )}
+
+        {/* Additional Cool Charts */}
+        {analytics && (
+          <div className="grid gap-6 mb-8">
+            {/* Color Popularity vs Average Rank */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Color Popularity vs Average Ranking</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <ScatterChart data={analytics.popularFinalColors}>
+                    <CartesianGrid />
+                    <XAxis
+                      type="number"
+                      dataKey="frequency"
+                      name="Popularity"
+                      label={{
+                        value: "Frequency",
+                        position: "insideBottom",
+                        offset: -5,
+                      }}
+                    />
+                    <YAxis
+                      type="number"
+                      dataKey="avgRank"
+                      name="Average Rank"
+                      reversed
+                      domain={[1, 3]}
+                      label={{
+                        value: "Average Rank",
+                        angle: -90,
+                        position: "insideLeft",
+                      }}
+                    />
+                    <Tooltip
+                      cursor={{ strokeDasharray: "3 3" }}
+                      content={({ payload }) => {
+                        if (payload && payload[0]) {
+                          const data = payload[0].payload;
+                          return (
+                            <div className="bg-white p-2 border rounded shadow">
+                              <div className="flex items-center gap-2 mb-1">
+                                <div
+                                  className="w-4 h-4 rounded border"
+                                  style={{ backgroundColor: data.hex }}
+                                />
+                                <span className="font-medium">{data.name}</span>
+                              </div>
+                              <div>Frequency: {data.frequency}</div>
+                              <div>Average Rank: {data.avgRank.toFixed(2)}</div>
+                              <div>Category: {data.category}</div>
+                            </div>
+                          );
+                        }
+                        return null;
+                      }}
+                    />
+                    <Scatter
+                      dataKey="frequency"
+                      fill="#ff6b6b"
+                      fillOpacity={0.7}
+                    />
+                  </ScatterChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* Top Color Categories with Visual Colors */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Top Color Categories</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {analytics.categoryPreferences
+                    .slice(0, 8)
+                    .map((category, index) => {
+                      // Find representative colors for this category
+                      const categoryColors = analytics.popularFinalColors
+                        .filter((color) => color.category === category.category)
+                        .slice(0, 5);
+
+                      return (
+                        <div
+                          key={category.category}
+                          className="flex items-center gap-4"
+                        >
+                          <div className="w-16 text-sm font-medium capitalize">
+                            {category.category}
+                          </div>
+                          <div className="flex-1">
+                            <div className="h-6 bg-gray-200 rounded-full overflow-hidden">
+                              <div
+                                className="h-full transition-all duration-500"
+                                style={{
+                                  width: `${
+                                    (category.count /
+                                      analytics.categoryPreferences[0]?.count) *
+                                      100 || 0
+                                  }%`,
+                                  backgroundColor: `hsl(${
+                                    index * 45
+                                  }, 70%, 60%)`,
+                                }}
+                              />
+                            </div>
+                          </div>
+                          <div className="flex gap-1">
+                            {categoryColors.map((color) => (
+                              <div
+                                key={color.hex}
+                                className="w-4 h-4 rounded border"
+                                style={{ backgroundColor: color.hex }}
+                                title={color.name}
+                              />
+                            ))}
+                          </div>
+                          <div className="w-12 text-sm text-right">
+                            {category.count}
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         )}
 

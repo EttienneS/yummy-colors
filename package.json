@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 1508",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "npm run prestart && next start",
     "prestart": "node scripts/prestart.js",
@@ -24,6 +24,7 @@
     "pg": "^8.16.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "recharts": "^3.1.2",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
