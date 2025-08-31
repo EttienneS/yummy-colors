@@ -526,7 +526,11 @@ export default function AdminPage() {
                     />
                     <Scatter
                       data={analytics.popularFinalColors}
-                      shape={(props) => {
+                      shape={(props: {
+                        cx: number;
+                        cy: number;
+                        payload: any;
+                      }) => {
                         const { cx, cy, payload } = props;
                         // Scale frequency for point size (min 6, max 24)
                         const minSize = 6;
@@ -596,7 +600,7 @@ export default function AdminPage() {
                         })}
                       </Pie>
                       <Tooltip
-                        formatter={(value, name, props) => [
+                        formatter={(value, name) => [
                           `${value} selections`,
                           name,
                         ]}
