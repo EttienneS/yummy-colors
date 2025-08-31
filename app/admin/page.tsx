@@ -467,7 +467,7 @@ export default function AdminPage() {
             </Card>
 
             {/* Hue vs Saturation Scatter Plot */}
-            <Card>
+            {/* <Card>
               <CardHeader>
                 <CardTitle>Hue vs Saturation Distribution</CardTitle>
               </CardHeader>
@@ -568,7 +568,7 @@ export default function AdminPage() {
                   </ScatterChart>
                 </ResponsiveContainer>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Category Distribution Pie Chart */}
             <Card>
