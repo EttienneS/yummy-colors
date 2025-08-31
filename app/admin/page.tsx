@@ -418,7 +418,7 @@ export default function AdminPage() {
                     />
                     <Bar dataKey="frequency">
                       {analytics.popularFinalColors
-                        .slice(0, 10)
+                        .slice(0, 25)
                         .map((entry, index) => (
                           <Cell key={`cell-most-${index}`} fill={entry.hex} />
                         ))}
@@ -438,7 +438,7 @@ export default function AdminPage() {
                   <BarChart
                     data={[...analytics.popularFinalColors]
                       .sort((a, b) => a.frequency - b.frequency)
-                      .slice(0, 10)}
+                      .slice(0, 25)}
                   >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis
@@ -456,7 +456,7 @@ export default function AdminPage() {
                     <Bar dataKey="frequency">
                       {[...analytics.popularFinalColors]
                         .sort((a, b) => a.frequency - b.frequency)
-                        .slice(0, 10)
+                        .slice(0, 25)
                         .map((entry, index) => (
                           <Cell key={`cell-least-${index}`} fill={entry.hex} />
                         ))}
@@ -473,7 +473,7 @@ export default function AdminPage() {
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={400}>
-                  <ScatterChart data={analytics.popularFinalColors}>
+                  <ScatterChart>
                     <CartesianGrid />
                     <XAxis
                       type="number"
@@ -525,9 +525,41 @@ export default function AdminPage() {
                       }}
                     />
                     <Scatter
-                      dataKey="frequency"
-                      fill="#ff7300"
-                      fillOpacity={0.6}
+                      data={analytics.popularFinalColors}
+                      shape={(props) => {
+                        const { cx, cy, payload } = props;
+                        // Scale frequency for point size (min 6, max 24)
+                        const minSize = 6;
+                        const maxSize = 24;
+                        const minFreq = Math.min(
+                          ...analytics.popularFinalColors.map(
+                            (c) => c.frequency
+                          )
+                        );
+                        const maxFreq = Math.max(
+                          ...analytics.popularFinalColors.map(
+                            (c) => c.frequency
+                          )
+                        );
+                        const size =
+                          minFreq === maxFreq
+                            ? minSize
+                            : minSize +
+                              ((payload.frequency - minFreq) /
+                                (maxFreq - minFreq)) *
+                                (maxSize - minSize);
+                        return (
+                          <circle
+                            cx={cx}
+                            cy={cy}
+                            r={size / 2}
+                            fill={payload.hex}
+                            stroke="#333"
+                            strokeWidth={1}
+                            opacity={0.85}
+                          />
+                        );
+                      }}
                     />
                   </ScatterChart>
                 </ResponsiveContainer>
@@ -541,28 +573,59 @@ export default function AdminPage() {
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
-                  <PieChart>
-                    <Pie
-                      data={analytics.categoryPreferences}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      label={({ name, percent }) =>
-                        `${name} ${percent ? (percent * 100).toFixed(0) : 0}%`
-                      }
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="count"
-                    >
-                      {analytics.categoryPreferences.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={`hsl(${index * 45}, 70%, 50%)`}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
+                  <>
+                    <PieChart>
+                      <Pie
+                        data={analytics.categoryPreferences}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        label={({ name, percent }) =>
+                          `${name} ${percent ? (percent * 100).toFixed(0) : 0}%`
+                        }
+                        outerRadius={80}
+                        dataKey="count"
+                      >
+                        {analytics.categoryPreferences.map((entry, index) => {
+                          // Find a representative color hex for this category
+                          const repColor =
+                            analytics.popularFinalColors.find(
+                              (c) => c.category === entry.category
+                            )?.hex || `hsl(${index * 45}, 70%, 50%)`;
+                          return <Cell key={`cell-${index}`} fill={repColor} />;
+                        })}
+                      </Pie>
+                      <Tooltip
+                        formatter={(value, name, props) => [
+                          `${value} selections`,
+                          name,
+                        ]}
+                      />
+                    </PieChart>
+                    {/* Legend */}
+                    <div className="flex flex-wrap gap-3 mt-4 justify-center">
+                      {analytics.categoryPreferences.map((entry, index) => {
+                        const repColor =
+                          analytics.popularFinalColors.find(
+                            (c) => c.category === entry.category
+                          )?.hex || `hsl(${index * 45}, 70%, 50%)`;
+                        return (
+                          <div
+                            key={entry.category}
+                            className="flex items-center gap-2"
+                          >
+                            <span
+                              className="w-4 h-4 rounded border"
+                              style={{ backgroundColor: repColor }}
+                            />
+                            <span className="text-sm capitalize">
+                              {entry.category}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
                 </ResponsiveContainer>
               </CardContent>
             </Card>

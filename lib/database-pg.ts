@@ -262,7 +262,7 @@ export async function getColorAnalytics() {
        WHERE gs.game_phase = 'complete'
        GROUP BY c.id, c.hex, c.name, c.category, c.hue, c.saturation, c.lightness
        ORDER BY frequency DESC, avg_rank ASC
-       LIMIT 20`
+  LIMIT 25`
     );
 
     // Get hue preferences
