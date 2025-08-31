@@ -416,7 +416,13 @@ export default function AdminPage() {
                       formatter={(value) => [value, "Frequency"]}
                       labelFormatter={(label) => `Color: ${label}`}
                     />
-                    <Bar dataKey="frequency" fill="#8884d8" />
+                    <Bar dataKey="frequency">
+                      {analytics.popularFinalColors
+                        .slice(0, 10)
+                        .map((entry, index) => (
+                          <Cell key={`cell-most-${index}`} fill={entry.hex} />
+                        ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -447,7 +453,14 @@ export default function AdminPage() {
                       formatter={(value) => [value, "Frequency"]}
                       labelFormatter={(label) => `Color: ${label}`}
                     />
-                    <Bar dataKey="frequency" fill="#82ca9d" />
+                    <Bar dataKey="frequency">
+                      {[...analytics.popularFinalColors]
+                        .sort((a, b) => a.frequency - b.frequency)
+                        .slice(0, 10)
+                        .map((entry, index) => (
+                          <Cell key={`cell-least-${index}`} fill={entry.hex} />
+                        ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
