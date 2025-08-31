@@ -1,3 +1,7 @@
+/* For dynamic color swatches in admin charts */
+.color-swatch {
+  background-color: var(--swatch-color, #e5e7eb);
+}
 @import "tailwindcss";
 
 :root {

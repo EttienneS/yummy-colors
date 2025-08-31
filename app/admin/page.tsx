@@ -1,4 +1,14 @@
-"use client";
+type ColorData = {
+  hex: string;
+  name: string;
+  category: string;
+  frequency: number;
+  avgRank: number;
+  avgHue: number;
+  avgSaturation: number;
+  avgLightness: number;
+};
+("use client");
 
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -466,110 +476,6 @@ export default function AdminPage() {
               </CardContent>
             </Card>
 
-            {/* Hue vs Saturation Scatter Plot */}
-            {/* <Card>
-              <CardHeader>
-                <CardTitle>Hue vs Saturation Distribution</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ResponsiveContainer width="100%" height={400}>
-                  <ScatterChart>
-                    <CartesianGrid />
-                    <XAxis
-                      type="number"
-                      dataKey="avgHue"
-                      name="Hue"
-                      domain={[0, 360]}
-                      label={{
-                        value: "Hue (°)",
-                        position: "insideBottom",
-                        offset: -5,
-                      }}
-                    />
-                    <YAxis
-                      type="number"
-                      dataKey="avgSaturation"
-                      name="Saturation"
-                      domain={[0, 100]}
-                      label={{
-                        value: "Saturation (%)",
-                        angle: -90,
-                        position: "insideLeft",
-                      }}
-                    />
-                    <Tooltip
-                      cursor={{ strokeDasharray: "3 3" }}
-                      formatter={(value, name) => [value, name]}
-                      labelFormatter={() => ""}
-                      content={({ payload }) => {
-                        if (payload && payload[0]) {
-                          const data = payload[0].payload;
-                          return (
-                            <div className="bg-white p-2 border rounded shadow">
-                              <div className="flex items-center gap-2 mb-1">
-                                <div
-                                  className="w-4 h-4 rounded border"
-                                  style={{ backgroundColor: data.hex }}
-                                />
-                                <span className="font-medium">{data.name}</span>
-                              </div>
-                              <div>Hue: {data.avgHue.toFixed(1)}°</div>
-                              <div>
-                                Saturation: {data.avgSaturation.toFixed(1)}%
-                              </div>
-                              <div>Frequency: {data.frequency}</div>
-                            </div>
-                          );
-                        }
-                        return null;
-                      }}
-                    />
-                    <Scatter
-                      data={analytics.popularFinalColors}
-                      shape={(props: {
-                        cx: number;
-                        cy: number;
-                        payload: any;
-                      }) => {
-                        const { cx, cy, payload } = props;
-                        // Scale frequency for point size (min 6, max 24)
-                        const minSize = 6;
-                        const maxSize = 24;
-                        const minFreq = Math.min(
-                          ...analytics.popularFinalColors.map(
-                            (c) => c.frequency
-                          )
-                        );
-                        const maxFreq = Math.max(
-                          ...analytics.popularFinalColors.map(
-                            (c) => c.frequency
-                          )
-                        );
-                        const size =
-                          minFreq === maxFreq
-                            ? minSize
-                            : minSize +
-                              ((payload.frequency - minFreq) /
-                                (maxFreq - minFreq)) *
-                                (maxSize - minSize);
-                        return (
-                          <circle
-                            cx={cx}
-                            cy={cy}
-                            r={size / 2}
-                            fill={payload.hex}
-                            stroke="#333"
-                            strokeWidth={1}
-                            opacity={0.85}
-                          />
-                        );
-                      }}
-                    />
-                  </ScatterChart>
-                </ResponsiveContainer>
-              </CardContent>
-            </Card> */}
-
             {/* Category Distribution Pie Chart */}
             <Card>
               <CardHeader>
@@ -726,6 +632,234 @@ export default function AdminPage() {
         {/* Additional Cool Charts */}
         {analytics && (
           <div className="grid gap-6 mb-8">
+            {/* HSL Pairwise Comparison Charts */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Hue vs Lightness */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Hue vs Lightness</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <ScatterChart>
+                      <CartesianGrid />
+                      <XAxis
+                        type="number"
+                        dataKey="avgHue"
+                        name="Hue"
+                        domain={[0, 360]}
+                        label={{
+                          value: "Hue (°)",
+                          position: "insideBottom",
+                          offset: -5,
+                        }}
+                      />
+                      <YAxis
+                        type="number"
+                        dataKey="avgLightness"
+                        name="Lightness"
+                        domain={[0, 100]}
+                        label={{
+                          value: "Lightness (%)",
+                          angle: -90,
+                          position: "insideLeft",
+                        }}
+                      />
+                      <Tooltip
+                        cursor={{ strokeDasharray: "3 3" }}
+                        content={({ payload }) => {
+                          if (payload && payload[0]) {
+                            const data = payload[0].payload;
+                            return (
+                              <div className="bg-white p-2 border rounded shadow">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <div
+                                    className="w-4 h-4 rounded border"
+                                    style={{ backgroundColor: data.hex }}
+                                  />
+                                  <span className="font-medium">
+                                    {data.name}
+                                  </span>
+                                </div>
+                                <div>Hue: {data.avgHue.toFixed(1)}°</div>
+                                <div>
+                                  Lightness: {data.avgLightness.toFixed(1)}%
+                                </div>
+                                <div>Frequency: {data.frequency}</div>
+                              </div>
+                            );
+                          }
+                          return null;
+                        }}
+                      />
+                      <Scatter
+                        data={analytics.popularFinalColors}
+                        shape={(props: unknown) => {
+                          if (
+                            typeof props === "object" &&
+                            props !== null &&
+                            "cx" in props &&
+                            "cy" in props &&
+                            "payload" in props
+                          ) {
+                            const { cx, cy, payload } = props as {
+                              cx: number;
+                              cy: number;
+                              payload: any;
+                            };
+                            const minSize = 6;
+                            const maxSize = 24;
+                            const minFreq = Math.min(
+                              ...analytics.popularFinalColors.map(
+                                (c) => c.frequency
+                              )
+                            );
+                            const maxFreq = Math.max(
+                              ...analytics.popularFinalColors.map(
+                                (c) => c.frequency
+                              )
+                            );
+                            const size =
+                              minFreq === maxFreq
+                                ? minSize
+                                : minSize +
+                                  ((payload.frequency - minFreq) /
+                                    (maxFreq - minFreq)) *
+                                    (maxSize - minSize);
+                            return (
+                              <circle
+                                cx={cx}
+                                cy={cy}
+                                r={size / 2}
+                                fill={payload.hex}
+                                stroke="#333"
+                                strokeWidth={1}
+                                opacity={0.85}
+                              />
+                            );
+                          }
+                          // Return a default element to satisfy type
+                          return <circle cx={0} cy={0} r={0} fill="#fff" />;
+                        }}
+                      />
+                    </ScatterChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+              {/* Saturation vs Lightness */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Saturation vs Lightness</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <ScatterChart>
+                      <CartesianGrid />
+                      <XAxis
+                        type="number"
+                        dataKey="avgSaturation"
+                        name="Saturation"
+                        domain={[0, 100]}
+                        label={{
+                          value: "Saturation (%)",
+                          position: "insideBottom",
+                          offset: -5,
+                        }}
+                      />
+                      <YAxis
+                        type="number"
+                        dataKey="avgLightness"
+                        name="Lightness"
+                        domain={[0, 100]}
+                        label={{
+                          value: "Lightness (%)",
+                          angle: -90,
+                          position: "insideLeft",
+                        }}
+                      />
+                      <Tooltip
+                        cursor={{ strokeDasharray: "3 3" }}
+                        content={({ payload }) => {
+                          if (payload && payload[0]) {
+                            const data = payload[0].payload;
+                            return (
+                              <div className="bg-white p-2 border rounded shadow">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <div
+                                    className="w-4 h-4 rounded border"
+                                    style={{ backgroundColor: data.hex }}
+                                  />
+                                  <span className="font-medium">
+                                    {data.name}
+                                  </span>
+                                </div>
+                                <div>
+                                  Saturation: {data.avgSaturation.toFixed(1)}%
+                                </div>
+                                <div>
+                                  Lightness: {data.avgLightness.toFixed(1)}%
+                                </div>
+                                <div>Frequency: {data.frequency}</div>
+                              </div>
+                            );
+                          }
+                          return null;
+                        }}
+                      />
+                      <Scatter
+                        data={analytics.popularFinalColors}
+                        shape={(props: unknown) => {
+                          if (
+                            typeof props === "object" &&
+                            props !== null &&
+                            "cx" in props &&
+                            "cy" in props &&
+                            "payload" in props
+                          ) {
+                            const { cx, cy, payload } = props as {
+                              cx: number;
+                              cy: number;
+                              payload: any;
+                            };
+                            const minSize = 6;
+                            const maxSize = 24;
+                            const minFreq = Math.min(
+                              ...analytics.popularFinalColors.map(
+                                (c) => c.frequency
+                              )
+                            );
+                            const maxFreq = Math.max(
+                              ...analytics.popularFinalColors.map(
+                                (c) => c.frequency
+                              )
+                            );
+                            const size =
+                              minFreq === maxFreq
+                                ? minSize
+                                : minSize +
+                                  ((payload.frequency - minFreq) /
+                                    (maxFreq - minFreq)) *
+                                    (maxSize - minSize);
+                            return (
+                              <circle
+                                cx={cx}
+                                cy={cy}
+                                r={size / 2}
+                                fill={payload.hex}
+                                stroke="#333"
+                                strokeWidth={1}
+                                opacity={0.85}
+                              />
+                            );
+                          }
+                          return null;
+                        }}
+                      />
+                    </ScatterChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </div>
             {/* Color Popularity vs Average Rank */}
             <Card>
               <CardHeader>
